@@ -1,0 +1,80 @@
+[
+  {
+    "id": "demo.archive.entryTally",
+    "type": "cleanup-list",
+    "title": "临时安置·发放入户登记（第一页）",
+    "lines": [
+      "实到  三  （户）",
+      "领发  四  （份）",
+      "（铅笔补写：+1）",
+      "※ 第一页簿面，右下角有水渍"
+    ],
+    "foundFrom": "demo.object.riceBowl",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 发放入户登记",
+        "lines": [
+          "核对：名单右下角的「+1」有第二行笔迹。",
+          "「+1」的名字栏是空着的。",
+          "※ 本页已由档案员复核（占位）"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 发放入户登记",
+        "lines": [
+          "「+1」那一格被铅笔圈出，边角折了一个角。",
+          "替不在场的人，留一个位置。（占位）"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 发放入户登记",
+        "lines": [
+          "这页被垫在碗底，字被水洇开。",
+          "「+1」已经看不清了。（占位）"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo.archive.anomalousLedger",
+    "type": "ledger",
+    "title": "临时安置清点表（乙柜·节选）",
+    "lines": [
+      "日期：十一月廿七",
+      "实到  3  户",
+      "补登  +1  （铅笔）",
+      "备注：（空白）",
+      "※ 第二层抽屉，纸边有一道拉痕"
+    ],
+    "foundFrom": "demo.object.filingCabinet",
+    "interpretations": [
+      {
+        "forStatus": "retained",
+        "title": "多出一页 · 清点表",
+        "lines": [
+          "多出的一页上，写着第二份的名字。",
+          "登记正式接纳了这份「+1」。（占位）"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "待核 · 清点表",
+        "lines": [
+          "它被放回待核篮。",
+          "没有结论——位置还空着。（占位）"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "划掉 · 清点表",
+        "lines": [
+          "这一行被红笔划掉。",
+          "事实上，并没有这个人。（占位）"
+        ]
+      }
+    ]
+  }
+]

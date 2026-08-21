@@ -1,0 +1,82 @@
+[
+  {
+    "id": "demo.object.riceBowl",
+    "name": "饭碗",
+    "kind": "object",
+    "location": "demo.maps.residence",
+    "x": 11,
+    "y": 15,
+    "interactRange": 1.5,
+    "inspect": "demo.s.bowl.inspect.1",
+    "provideArchive": "demo.archive.entryTally",
+    "once": true
+  },
+  {
+    "id": "demo.object.luggage",
+    "name": "旧行李",
+    "kind": "object",
+    "location": "demo.maps.residence",
+    "x": 33,
+    "y": 3,
+    "interactRange": 1.5,
+    "inspect": "demo.s.luggage.inspect.1",
+    "collect": { "id": "demo.item.storageReceipt" },
+    "once": true
+  },
+  {
+    "id": "demo.object.sofa",
+    "name": "旧沙发",
+    "kind": "object",
+    "location": "demo.maps.residence",
+    "x": 17,
+    "y": 5,
+    "interactRange": 1.5,
+    "inspect": "demo.s.sofa.inspect.1",
+    "once": true
+  },
+  {
+    "id": "demo.object.filingCabinet",
+    "name": "铁皮柜",
+    "kind": "object",
+    "location": "demo.maps.archiveRoom",
+    "x": 21,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "demo.s.cabinet.inspect.1",
+    "provideArchive": "demo.archive.anomalousLedger",
+    "once": true
+  },
+  {
+    "id": "demo.object.registrar",
+    "name": "档案员",
+    "kind": "npc",
+    "location": "demo.maps.archiveRoom",
+    "x": 9,
+    "y": 13,
+    "interactRange": 2,
+    "dialogue": "demo.s.registrar.hello"
+  },
+  {
+    "id": "demo.object.marketKeeper",
+    "name": "摊主",
+    "kind": "npc",
+    "location": "demo.maps.market",
+    "x": 11,
+    "y": 5,
+    "interactRange": 2,
+    "dialogue": "demo.s.marketKeeper.moved",
+    "requirements": { "hasArchive": "demo.archive.entryTally" },
+    "unmetInspect": "demo.s.marketKeeper.before"
+  },
+  {
+    "id": "demo.object.ricePot",
+    "name": "煮饭锅",
+    "kind": "object",
+    "location": "demo.maps.kitchen",
+    "x": 9,
+    "y": 4,
+    "interactRange": 1.5,
+    "inspect": "demo.s.ricePot.inspect.1",
+    "once": true
+  }
+]

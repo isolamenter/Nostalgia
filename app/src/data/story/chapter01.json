@@ -1,0 +1,223 @@
+{
+  "chapterId": "ch1",
+  "title": "第一份 · 第二份（占位示例）",
+  "nodes": [
+    {
+      "id": "demo.residence.entry.1",
+      "mode": "prose",
+      "text": "十一月末，安置区的一层住宅。门没有锁。\n\n这是三室一厅改成四间房的那种户型，走廊里堆着没来得及归拢的东西。你在门厅站了站，鞋底带进来的雨正沿着台阶往外渗。",
+      "note": "【占位】第一章开场散文段 1/3",
+      "next": "demo.residence.entry.2"
+    },
+    {
+      "id": "demo.residence.entry.2",
+      "mode": "prose",
+      "text": "你被告知先住下，等档案核对完再做安排。\n\n客厅的方桌上摆着四只碗——可这屋里眼下只登记了你一个人？不只是你。饭桌上常有第四副碗筷，没有人提起。",
+      "note": "【占位】散文段 2/3",
+      "next": "demo.residence.entry.3"
+    },
+    {
+      "id": "demo.residence.entry.3",
+      "mode": "prose",
+      "text": "碗是大事。饭桌旁的位置，常常是一个家庭里最先空出来的地方。\n\n先四处看看：碗、行李、旧沙发。隔壁是档案室，菜市场再远一点。",
+      "note": "【占位】散文段 3/3",
+      "flags": [{ "flag": "demo.arrived", "value": true }],
+      "next": "$END"
+    },
+    {
+      "id": "demo.s.bowl.inspect.1",
+      "mode": "prose",
+      "text": "饭桌正中摆着一只搪瓷碗，洗干净了，倒扣着。碗沿有一道缺口。\n\n旁边是今早分饭的记录：实到三户，领了四份。",
+      "note": "【占位】饭碗调查",
+      "flags": [{ "flag": "demo.inspected.bowl", "value": true }],
+      "next": "demo.s.bowl.inspect.2"
+    },
+    {
+      "id": "demo.s.bowl.inspect.2",
+      "mode": "prose",
+      "text": "档案里写着「加一份」。没有人承认多出的那一份是给谁的。",
+      "next": "$END"
+    },
+    {
+      "id": "demo.s.luggage.inspect.1",
+      "mode": "prose",
+      "text": "一只旧行李箱，盖子上拴着统一收据，没有拆开。箱子比它看起来要轻。",
+      "note": "【占位】行李调查（含收集）",
+      "next": "$END"
+    },
+    {
+      "id": "demo.s.sofa.inspect.1",
+      "mode": "prose",
+      "text": "沙发缝里掉出一张旧车票，终点是青潭。票根上「临时停靠」的章已经洇了。",
+      "note": "【占位】沙发调查",
+      "next": "$END"
+    },
+    {
+      "id": "demo.s.cabinet.inspect.1",
+      "mode": "prose",
+      "text": "档案室的铁皮柜，第二层抽屉卡住了。用力拉开，一沓临时安置清点表散出来，纸边有一道拉痕。",
+      "note": "【占位】铁皮柜调查",
+      "next": "demo.s.cabinet.inspect.2"
+    },
+    {
+      "id": "demo.s.cabinet.inspect.2",
+      "mode": "prose",
+      "text": "其中一页，名字那一栏被人用铅笔补了一个「+1」。清点表收进了你的档案夹。",
+      "next": "$END"
+    },
+    {
+      "id": "demo.s.registrar.hello",
+      "mode": "dialogue",
+      "speaker": "demo.char.registrar",
+      "text": "“新来的？登记先放我这。你要查什么？”",
+      "next": "demo.s.registrar.choice"
+    },
+    {
+      "id": "demo.s.registrar.choice",
+      "mode": "dialogue",
+      "speaker": "demo.char.registrar",
+      "text": "你说明来意。",
+      "choices": [
+        {
+          "id": "q.ledger",
+          "text": "查一份临时安置的清点表。",
+          "flags": [{ "flag": "demo.q.ledger", "value": true }],
+          "next": "demo.s.registrar.ledgerHint"
+        },
+        {
+          "id": "q.name",
+          "text": "问他在这里多久了。",
+          "flags": [{ "flag": "demo.q.aboutRegistrar", "value": true }],
+          "next": "demo.s.registrar.smalltalk"
+        }
+      ]
+    },
+    {
+      "id": "demo.s.registrar.ledgerHint",
+      "mode": "dialogue",
+      "speaker": "demo.char.registrar",
+      "text": "“去第二层抽屉找。名字那栏，有人补过一笔。”",
+      "next": "demo.s.ledger.adjudicate"
+    },
+    {
+      "id": "demo.s.registrar.smalltalk",
+      "mode": "dialogue",
+      "speaker": "demo.char.registrar",
+      "text": "“三年。档案比人记得久。”",
+      "next": "demo.s.ledger.adjudicate"
+    },
+    {
+      "id": "demo.s.ledger.adjudicate",
+      "mode": "prose",
+      "text": "清点表平摊在桌上。那一个「+1」的格子空在那里。你需要决定：保留这份登记、把它悬置，还是移出这本卷宗。",
+      "note": "【占位】异常记录三选一（状态机联动）",
+      "choices": [
+        {
+          "id": "choose.retained",
+          "text": "保留这份登记——替缺席者留一个位置",
+          "flags": [
+            { "flag": "archive.demo.archive.anomalousLedger.status", "value": "retained" },
+            { "flag": "demo.resolved.ledger", "value": true }
+          ],
+          "next": "demo.s.ledger.resolution"
+        },
+        {
+          "id": "choose.held",
+          "text": "先悬置——没有结论也是一种留位置",
+          "flags": [
+            { "flag": "archive.demo.archive.anomalousLedger.status", "value": "held" },
+            { "flag": "demo.resolved.ledger", "value": true }
+          ],
+          "next": "demo.s.ledger.resolution"
+        },
+        {
+          "id": "choose.discarded",
+          "text": "移出这份记录——收拾干净，假装没有第四个人",
+          "flags": [
+            { "flag": "archive.demo.archive.anomalousLedger.status", "value": "discarded" },
+            { "flag": "demo.resolved.ledger", "value": true }
+          ],
+          "next": "demo.s.ledger.resolution"
+        }
+      ]
+    },
+    {
+      "id": "demo.s.ledger.resolution",
+      "mode": "prose",
+      "text": "你合上了卷宗。",
+      "note": "【占位】状态门控：按档案状态走不同行文",
+      "next": [
+        {
+          "when": { "hasFlag": "archive.demo.archive.anomalousLedger.status", "equals": "retained" },
+          "to": "demo.s.ledger.resolution.retained"
+        },
+        {
+          "when": { "hasFlag": "archive.demo.archive.anomalousLedger.status", "equals": "held" },
+          "to": "demo.s.ledger.resolution.held"
+        },
+        {
+          "when": { "hasFlag": "archive.demo.archive.anomalousLedger.status", "equals": "discarded" },
+          "to": "demo.s.ledger.resolution.discarded"
+        },
+        { "to": "demo.s.ledger.resolution.held" }
+      ]
+    },
+    {
+      "id": "demo.s.ledger.resolution.retained",
+      "mode": "prose",
+      "text": "登记表多出一页。多出的那一页上，「第二份」被正式记下，给自己留了一个位置。",
+      "note": "【占位】保留路线",
+      "next": "demo.end.chapter1"
+    },
+    {
+      "id": "demo.s.ledger.resolution.held",
+      "mode": "prose",
+      "text": "你把它放回待核篮。没有结论，位置还空着——空着，也是一种记法。",
+      "note": "【占位】悬置路线",
+      "next": "demo.end.chapter1"
+    },
+    {
+      "id": "demo.s.ledger.resolution.discarded",
+      "mode": "prose",
+      "text": "这一行被红笔划掉。没有人再提起第四份饭。",
+      "note": "【占位】移出路线",
+      "next": "demo.end.chapter1"
+    },
+    {
+      "id": "demo.s.marketKeeper.before",
+      "mode": "dialogue",
+      "speaker": "demo.char.keeper",
+      "text": "“还没正经开门。要什么自己掂量。”",
+      "note": "【占位】门禁未满足入口"
+    },
+    {
+      "id": "demo.s.marketKeeper.moved",
+      "mode": "dialogue",
+      "speaker": "demo.char.keeper",
+      "text": "“听说你们安置区那户，总让摊上多留一份。替谁留的？”",
+      "note": "【占位】门禁满足后（收到饭碗档案后解锁）",
+      "next": "demo.s.marketKeeper.moved.2"
+    },
+    {
+      "id": "demo.s.marketKeeper.moved.2",
+      "mode": "dialogue",
+      "speaker": "demo.char.keeper",
+      "text": "“替一个不在场的人。饭，是要趁热吃的。”",
+      "next": "$END"
+    },
+    {
+      "id": "demo.s.ricePot.inspect.1",
+      "mode": "prose",
+      "text": "灶上还温着饭。锅底那一层，比饭桌上的人数多出半碗。",
+      "flags": [{ "flag": "demo.seen.pot", "value": true }],
+      "next": "$END"
+    },
+    {
+      "id": "demo.end.chapter1",
+      "mode": "prose",
+      "text": "门外的汽笛声远了。这一份档案暂时安静下来。\n\n——境遇已记录，是否归档，由下一次翻开决定。",
+      "note": "【占位】章节结算占位",
+      "next": "$END"
+    }
+  ]
+}

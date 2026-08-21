@@ -1,0 +1,87 @@
+/* —— 《归档故乡》全局样式：潮湿低饱和色板 —— */
+:root {
+  --bg-0: #101718;
+  --bg-1: #162021;
+  --bg-2: #1c2829;
+  --ink: #cfd6ce;
+  --ink-dim: #8b9991;
+  --ink-faint: #5c6a63;
+  --line: #31403f;
+  --line-soft: #243130;
+  --accent: #9ab3b4;
+  --accent-dim: #5f7a7c;
+  --paper: #d8d2bf;
+  --paper-dim: #b7b09a;
+  --paper-ink: #3a382f;
+  --danger: #a25b55;
+  --keep: #93a2a0;
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-0);
+  color: var(--ink);
+  font-family:
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 3px;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* —— 布局 —— */
+.game-app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.game-host {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-1);
+}
+
+.game-host canvas {
+  display: block;
+  image-rendering: pixelated;
+}

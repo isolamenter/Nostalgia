@@ -1,0 +1,23 @@
+[
+  {
+    "id": "demo.char.ma",
+    "name": "母亲",
+    "role": "第一章·不在场的亲属",
+    "color": "#c2b8a6",
+    "shortBio": "【占位】安置区那户人家总替她留一份饭。"
+  },
+  {
+    "id": "demo.char.keeper",
+    "name": "摊主",
+    "role": "第一章·菜市场摊主",
+    "color": "#b3bea8",
+    "shortBio": "【占位】认得安置区数得出人头的那类人。"
+  },
+  {
+    "id": "demo.char.registrar",
+    "name": "档案员",
+    "role": "第一章·档案室值班员",
+    "color": "#a8b3bf",
+    "shortBio": "【占位】管着清点表与待核篮的第三年。"
+  }
+]
