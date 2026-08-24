@@ -94,10 +94,15 @@ export async function loadCatalog(): Promise<DataCatalog> {
     chapters.set(chapter.chapterId, chapter)
   }
 
-  const characters = index('characters', parseOrThrow('characters', charactersFileSchema, charsRaw))
-  const items = index('items', parseOrThrow('items', itemsFileSchema, itemsRaw))
-  const maps = index('maps', parseOrThrow('maps', mapsFileSchema, mapsRaw))
-  const archives = index('archives', parseOrThrow('archives', archivesFileSchema, archivesRaw))
+  // 文件内容本身即对象数组（story 例外：单文件单章）。collect 返回「每文件一个元素」，
+  // 对数组型目录会产生一层嵌套，先拍平一层到行级别再做校验。
+  const characters = index(
+    'characters',
+    parseOrThrow('characters', charactersFileSchema, charsRaw.flat()),
+  )
+  const items = index('items', parseOrThrow('items', itemsFileSchema, itemsRaw.flat()))
+  const maps = index('maps', parseOrThrow('maps', mapsFileSchema, mapsRaw.flat()))
+  const archives = index('archives', parseOrThrow('archives', archivesFileSchema, archivesRaw.flat()))
 
   // 交叉引用门禁：物件所在 map / 档案 / 章节入口必须存在（内容生产防呆）
   for (const [id, item] of items) {
