@@ -1,222 +1,328 @@
 {
   "chapterId": "ch1",
-  "title": "第一份 · 第二份（占位示例）",
+  "title": "第二份",
+  "startMap": "ch1.maps.home",
+  "intro": { "flag": "ch1.intro.done", "node": "ch1.intro.1" },
   "nodes": [
     {
-      "id": "demo.residence.entry.1",
+      "id": "ch1.intro.1",
       "mode": "prose",
-      "text": "十一月末，安置区的一层住宅。门没有锁。\n\n这是三室一厅改成四间房的那种户型，走廊里堆着没来得及归拢的东西。你在门厅站了站，鞋底带进来的雨正沿着台阶往外渗。",
-      "note": "【占位】第一章开场散文段 1/3",
-      "next": "demo.residence.entry.2"
+      "text": "十一月末，你回了旧街。\n\n门没有锁。屋里暗，电风扇转了两下卡住，又继续转。饭桌比你记忆里小，桌边只放着一张椅子——另一张靠墙，堆着报纸和衣服。",
+      "next": "ch1.intro.2"
     },
     {
-      "id": "demo.residence.entry.2",
+      "id": "ch1.intro.2",
       "mode": "prose",
-      "text": "你被告知先住下，等档案核对完再做安排。\n\n客厅的方桌上摆着四只碗——可这屋里眼下只登记了你一个人？不只是你。饭桌上常有第四副碗筷，没有人提起。",
-      "note": "【占位】散文段 2/3",
-      "next": "demo.residence.entry.3"
+      "text": "手机又亮了一下。\n\n青潭上游站回传：第二份未动。一个撤销了十三年的站名，忽然开始说话。你把它读过很多遍，最后两行始终一样：\n\n名册第二页有一个名字。晚饭分成两份。",
+      "next": "ch1.intro.3"
     },
     {
-      "id": "demo.residence.entry.3",
+      "id": "ch1.intro.3",
       "mode": "prose",
-      "text": "碗是大事。饭桌旁的位置，常常是一个家庭里最先空出来的地方。\n\n先四处看看：碗、行李、旧沙发。隔壁是档案室，菜市场再远一点。",
-      "note": "【占位】散文段 3/3",
-      "flags": [{ "flag": "demo.arrived", "value": true }],
+      "text": "母亲在厨房，饭刚要下锅。你放下东西，先四处看看：门口的柜子、饭桌、药盒、那张堆着东西的椅子、桌角压着的小票。\n\n隔壁是县档案馆，菜市场再远一点。",
+      "flags": [{ "flag": "ch1.intro.seen", "value": true }],
       "next": "$END"
     },
     {
-      "id": "demo.s.bowl.inspect.1",
+      "id": "ch1.s.phone.1",
       "mode": "prose",
-      "text": "饭桌正中摆着一只搪瓷碗，洗干净了，倒扣着。碗沿有一道缺口。\n\n旁边是今早分饭的记录：实到三户，领了四份。",
-      "note": "【占位】饭碗调查",
-      "flags": [{ "flag": "demo.inspected.bowl", "value": true }],
-      "next": "demo.s.bowl.inspect.2"
-    },
-    {
-      "id": "demo.s.bowl.inspect.2",
-      "mode": "prose",
-      "text": "档案里写着「加一份」。没有人承认多出的那一份是给谁的。",
+      "text": "你的手机，屏幕上还停在那条上传记录。\n\n五行里最后一行是「晚饭分成两份」。再往下，新的一行：「第二份未动」。\n\n你把截图收进档案夹，标成异常记录。",
+      "flags": [{ "flag": "ch1.seen.phone", "value": true }],
       "next": "$END"
     },
     {
-      "id": "demo.s.luggage.inspect.1",
+      "id": "ch1.s.table.1",
       "mode": "prose",
-      "text": "一只旧行李箱，盖子上拴着统一收据，没有拆开。箱子比它看起来要轻。",
-      "note": "【占位】行李调查（含收集）",
+      "text": "饭桌上摆着两只碗。\n\n瓷碗碗口有一道裂纹——你说换个新的，母亲说还能装蒜。不锈钢碗干净，扣在一边。\n\n旁边是今早分饭的痕迹：实到三户，领了四份。",
+      "next": "ch1.s.table.2"
+    },
+    {
+      "id": "ch1.s.table.2",
+      "mode": "prose",
+      "text": "你把碗并排摆好。\n\n原来，第二份不是今天才有。",
       "next": "$END"
     },
     {
-      "id": "demo.s.sofa.inspect.1",
+      "id": "ch1.s.pillbox.1",
       "mode": "prose",
-      "text": "沙发缝里掉出一张旧车票，终点是青潭。票根上「临时停靠」的章已经洇了。",
-      "note": "【占位】沙发调查",
+      "text": "药盒放在桌边。一格空了，两格还有药，最后一格放着半片白色药片。\n\n「你自己的药还有多少？」——几天。\n\n明天得买。",
       "next": "$END"
     },
     {
-      "id": "demo.s.cabinet.inspect.1",
+      "id": "ch1.s.note.1",
       "mode": "prose",
-      "text": "档案室的铁皮柜，第二层抽屉卡住了。用力拉开，一沓临时安置清点表散出来，纸边有一道拉痕。",
-      "note": "【占位】铁皮柜调查",
-      "next": "demo.s.cabinet.inspect.2"
-    },
-    {
-      "id": "demo.s.cabinet.inspect.2",
-      "mode": "prose",
-      "text": "其中一页，名字那一栏被人用铅笔补了一个「+1」。清点表收进了你的档案夹。",
+      "text": "桌角压着一张药房小票，字被折痕压掉一半。\n\n是隔壁老太太要的药。母亲手上还有水，没接，让它压在桌角。「明天先去市场那家看看。」\n\n你把它折好，放进兜里。",
       "next": "$END"
     },
     {
-      "id": "demo.s.registrar.hello",
+      "id": "ch1.s.chair.1",
+      "mode": "prose",
+      "text": "那张靠墙的椅子，堆着报纸和衣服。\n\n你小时候，门外寄存的纸箱、替人收的东西，都往这里放，放了就没人催着拿。\n\n「你这椅子一直给别人放东西？」\n「椅子不用。我一个人坐几张？」",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.cooker.1",
+      "mode": "prose",
+      "text": "电饭锅还剩一点饭。她用勺子刮到一边，盖上锅盖：「晚上饿了再吃。」\n\n锅底那一层，比饭桌上的人数多出半碗。",
+      "flags": [{ "flag": "ch1.seen.pot", "value": true }],
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.dishrack.1",
+      "mode": "prose",
+      "text": "晾碗架原本只够放一只碗。\n\n你腾出一点地方，把洗净的碗一只一只扣上去。旁边那只裂纹的瓷碗，母亲说是要留着装蒜的。你把它擦干，一起放回架子。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.stove.1",
+      "mode": "prose",
+      "text": "灶台。热水器先空响几秒，才慢慢变热。\n\n水烧开了，蒸汽扑在窗玻璃上，很快凝成一层又落下来。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.ledger.1",
+      "mode": "prose",
+      "text": "县档案馆的桌上摊着一册临时安置清点表。表头写着「实到人数」，每户一个数字。\n\n你母亲负责的那一列：铅笔写了三，又补成四；写了二，又加一个小小的「+1」。\n\n备注：人未回，先保留。",
+      "next": "ch1.s.ledger.2"
+    },
+    {
+      "id": "ch1.s.ledger.2",
+      "mode": "prose",
+      "text": "第二页中间，你看见自己的名字。\n\n身份材料转接，缺本人签字，由家属代交。\n\n日期是你离开南岭后的第三年。你不记得这件事。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.dist.1",
+      "mode": "prose",
+      "text": "一册发放记录，暴雨后的第三天，按人数领方便面、矿泉水和折叠床。\n\n母亲补的字挤得很紧：「五栋二单元，实到三，领四份——一人去医院陪护。」\n\n最后一笔被红笔圈过：物资按现场人数发放，不得预留。\n\n她补了一句：已送。没有解释送给谁。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.transfer.1",
+      "mode": "prose",
+      "text": "一页转运复核单，按户抄了一遍人数。\n\n母亲改过的几户没有改回实到数，车次栏旁只写：未到，末车再核。\n\n字迹认得——她写的东西，总不愿占下一行。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.copier.1",
+      "mode": "prose",
+      "text": "复印机卡了一次纸，机器发出一声短促的提示。值班人员拉开侧板，把纸抽出来。\n\n「这种老表有什么好看的？」\n「家里的东西。」\n「进了档案室就不是家里的东西了。」\n\n复印件出来以后，字比原件更黑。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.huang.hello",
       "mode": "dialogue",
-      "speaker": "demo.char.registrar",
-      "text": "“新来的？登记先放我这。你要查什么？”",
-      "next": "demo.s.registrar.choice"
-    },
-    {
-      "id": "demo.s.registrar.choice",
-      "mode": "dialogue",
-      "speaker": "demo.char.registrar",
-      "text": "你说明来意。",
+      "speaker": "ch1.char.huang",
+      "text": "“登记先放我这。最近来查旧站的人不少。”\n\n你说明来意：想核一批临时安置的旧表。",
       "choices": [
         {
           "id": "q.ledger",
           "text": "查一份临时安置的清点表。",
-          "flags": [{ "flag": "demo.q.ledger", "value": true }],
-          "next": "demo.s.registrar.ledgerHint"
+          "next": "ch1.s.huang.ledger"
         },
         {
-          "id": "q.name",
-          "text": "问他在这里多久了。",
-          "flags": [{ "flag": "demo.q.aboutRegistrar", "value": true }],
-          "next": "demo.s.registrar.smalltalk"
+          "id": "q.wages",
+          "text": "来帮忙登记、送药的人，有补贴吗？",
+          "next": "ch1.s.huang.wages"
+        },
+        {
+          "id": "q.why",
+          "text": "我母亲为什么总在这些表上？",
+          "next": "ch1.s.huang.why"
+        },
+        {
+          "id": "q.red",
+          "text": "那页红圈公布的字，是她补的。",
+          "condition": { "hasArchive": "ch1.archive.distribution" },
+          "next": "ch1.s.huang.red"
         }
       ]
     },
     {
-      "id": "demo.s.registrar.ledgerHint",
+      "id": "ch1.s.huang.ledger",
       "mode": "dialogue",
-      "speaker": "demo.char.registrar",
-      "text": "“去第二层抽屉找。名字那栏，有人补过一笔。”",
-      "next": "demo.s.ledger.adjudicate"
+      "speaker": "ch1.char.huang",
+      "text": "“第二层抽屉。名字那栏，有人用铅笔补过一笔。\n\n你家里人吧——这种笔迹，一看就是怕占地方。”",
+      "next": "$END"
     },
     {
-      "id": "demo.s.registrar.smalltalk",
+      "id": "ch1.s.huang.wages",
       "mode": "dialogue",
-      "speaker": "demo.char.registrar",
-      "text": "“三年。档案比人记得久。”",
-      "next": "demo.s.ledger.adjudicate"
+      "speaker": "ch1.char.huang",
+      "text": "“哪一批？有些有补贴，有些没有。那几年表乱，社区叫的、单位借的、居民自己帮忙的混在一起。\n\n来查家人的，你是第几个了。”",
+      "next": "$END"
     },
     {
-      "id": "demo.s.ledger.adjudicate",
+      "id": "ch1.s.huang.why",
+      "mode": "dialogue",
+      "speaker": "ch1.char.huang",
+      "text": "“她住附近吧。\n\n……还要什么原因？那几年事情多，有编制的反倒忙自己的表。她认得人，腿也走得动。喊多了，就成她该去的。”",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.huang.red",
+      "mode": "dialogue",
+      "speaker": "ch1.char.huang",
+      "text": "“红圈是规矩。她补的「已送」——工作记录不能涂改的。\n\n可到底送没送，谁也没去查。”",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.meat.before",
+      "mode": "dialogue",
+      "speaker": "ch1.char.keeper",
+      "text": "“要什么自己掂量。”",
+      "note": "门禁未满足：还没有这份异常信号的线索时，摊主不多聊",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.meat.hello",
+      "mode": "dialogue",
+      "speaker": "ch1.char.keeper",
+      "text": "“听说你们安置区那户，总让摊上多留一份。\n\n替谁留的？你来问这个……你该知道。”",
+      "next": "ch1.s.meat.hello.2"
+    },
+    {
+      "id": "ch1.s.meat.hello.2",
+      "mode": "dialogue",
+      "speaker": "ch1.char.keeper",
+      "text": "“替一个不在场的人。\n\n饭，是要趁热吃的。”",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.pharmacy.1",
       "mode": "prose",
-      "text": "清点表平摊在桌上。那一个「+1」的格子空在那里。你需要决定：保留这份登记、把它悬置，还是移出这本卷宗。",
-      "note": "【占位】异常记录三选一（状态机联动）",
+      "text": "药房柜台。母亲的药换了个牌子，比昨天便宜七块。\n\n隔壁老太太要的那一种，市场这边没有——柜台说，去县医院旁边那家问问。\n\n你买了自己的一盒，把隔壁的药也放进袋子，「顺路问」到这就算数。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.veg.1",
+      "mode": "prose",
+      "text": "青菜摊。地面很湿。\n\n她买青菜、鸡蛋和一块豆腐，豆腐盒歪了一下，有水漏出来。摊主额外抓了两根葱，说一个人吃不了那么多。",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.s.ma.before",
+      "mode": "prose",
+      "text": "你在她身边坐下。她没有抬头，把碗推到你面前：\n\n「先吃饭。」\n\n你心里还攒着问题，但看她的神色，今天还不到问的时候。有些事情，得等到表上的字都对得上，才好开口。",
+      "note": "母亲门禁未满足时的短对话（放低门槛，收齐四份异常记录后才进入完整饭桌事件）",
+      "next": "$END"
+    },
+    {
+      "id": "ch1.event.dinner.1",
+      "mode": "prose",
+      "text": "这一晚，她没有躲。\n\n两张椅子摆上了桌——她先给你半碗，再给自己半碗，锅里还剩一点，她用勺子刮到一边，盖上锅盖。\n\n「晚上饿了再吃。」",
+      "next": "ch1.event.dinner.2"
+    },
+    {
+      "id": "ch1.event.dinner.2",
+      "mode": "dialogue",
+      "speaker": "ch1.char.ma",
+      "text": "“一个人煮很难正好。”\n\n你旁边还空着一个位置。\n\n“……看什么？”",
+      "next": "ch1.event.dinner.3"
+    },
+    {
+      "id": "ch1.event.dinner.3",
+      "mode": "prose",
+      "text": "你把手机推过去，屏幕上停着那条异常信号。她戴上老花镜，一行一行看。\n\n看到「晚饭分成两份」时，没有什么表情。\n\n「这个站早没了。」\n你说：「这些话，是不是你说过？」\n「可能说过。」",
+      "next": "ch1.event.dinner.4"
+    },
+    {
+      "id": "ch1.event.dinner.4",
+      "mode": "prose",
+      "text": "你把复印件翻出来——清点表上那个「+1」，发放记录上那句「已送」。\n\n「你被红笔圈过。」\n她切菜的手顿了一下：「圈就圈。」\n「你后来还是送了。」\n「可能吧。」\n「送给谁？」\n她想了一会儿：「哪一年？……我也记不得。」",
+      "next": "ch1.event.dinner.5"
+    },
+    {
+      "id": "ch1.event.dinner.5",
+      "mode": "prose",
+      "text": "「人没来，为什么还算？」\n刀停了一下。\n「回来怎么办？」\n「按实到人数发。」\n「那是他们的事。」\n\n她继续切姜。你看见她的字迹在纸上挤得很紧——怕占下一行。",
+      "next": "ch1.event.dinner.heart"
+    },
+    {
+      "id": "ch1.event.dinner.heart",
+      "mode": "prose",
+      "text": "你放下筷子。\n\n「我走以后，你是不是也一直留一份？」\n\n她没有马上回答。汤里有一块肉浮上来，她用筷子夹开。\n「你回来那几次不是都吃了吗？」\n「我说平时。」\n「平时你又不在。」\n「所以才留。」\n\n她抬头看了你一会儿：「你以前就这样。别人放个东西，你非要问是不是给你的。」",
+      "next": "ch1.event.dinner.quiet"
+    },
+    {
+      "id": "ch1.event.dinner.quiet",
+      "mode": "prose",
+      "text": "你把碗里最后一口饭吃完。\n\n锅里还剩一点，她走过去，没有收掉。饭多了就多了——谁来谁吃，没人来，第二天热。\n\n第二份是谁的位置，你心里已经有了答案。现在要决定的，是这一晚记下来的东西，怎么放。",
+      "next": "ch1.event.dinner.adjudicate"
+    },
+    {
+      "id": "ch1.event.dinner.adjudicate",
+      "mode": "prose",
+      "text": "档案夹摊在桌边。四份记录——异常信号、清点表、发放记录、转运复核单——都指向同一个不在场的人。\n\n你决定：",
       "choices": [
         {
           "id": "choose.retained",
-          "text": "保留这份登记——替缺席者留一个位置",
+          "text": "留下这个位置——替缺席者算上他的一份",
           "flags": [
-            { "flag": "archive.demo.archive.anomalousLedger.status", "value": "retained" },
-            { "flag": "demo.resolved.ledger", "value": true }
+            { "flag": "archive.ch1.archive.signal.status", "value": "retained" },
+            { "flag": "archive.ch1.archive.ledger.status", "value": "retained" },
+            { "flag": "archive.ch1.archive.distribution.status", "value": "retained" },
+            { "flag": "archive.ch1.archive.transfer.status", "value": "retained" },
+            { "flag": "ch1.ending", "value": "retained" },
+            { "flag": "ch1.chapter.end", "value": true }
           ],
-          "next": "demo.s.ledger.resolution"
+          "next": "ch1.event.dinner.resolution"
         },
         {
           "id": "choose.held",
-          "text": "先悬置——没有结论也是一种留位置",
+          "text": "先悬着，不急着定——位置还空着",
           "flags": [
-            { "flag": "archive.demo.archive.anomalousLedger.status", "value": "held" },
-            { "flag": "demo.resolved.ledger", "value": true }
+            { "flag": "archive.ch1.archive.signal.status", "value": "held" },
+            { "flag": "archive.ch1.archive.ledger.status", "value": "held" },
+            { "flag": "archive.ch1.archive.distribution.status", "value": "held" },
+            { "flag": "archive.ch1.archive.transfer.status", "value": "held" },
+            { "flag": "ch1.ending", "value": "held" },
+            { "flag": "ch1.chapter.end", "value": true }
           ],
-          "next": "demo.s.ledger.resolution"
+          "next": "ch1.event.dinner.resolution"
         },
         {
           "id": "choose.discarded",
-          "text": "移出这份记录——收拾干净，假装没有第四个人",
+          "text": "把那份移出去——收拾干净",
           "flags": [
-            { "flag": "archive.demo.archive.anomalousLedger.status", "value": "discarded" },
-            { "flag": "demo.resolved.ledger", "value": true }
+            { "flag": "archive.ch1.archive.signal.status", "value": "discarded" },
+            { "flag": "archive.ch1.archive.ledger.status", "value": "discarded" },
+            { "flag": "archive.ch1.archive.distribution.status", "value": "discarded" },
+            { "flag": "archive.ch1.archive.transfer.status", "value": "discarded" },
+            { "flag": "ch1.ending", "value": "discarded" },
+            { "flag": "ch1.chapter.end", "value": true }
           ],
-          "next": "demo.s.ledger.resolution"
+          "next": "ch1.event.dinner.resolution"
         }
       ]
     },
     {
-      "id": "demo.s.ledger.resolution",
+      "id": "ch1.event.dinner.resolution",
       "mode": "prose",
-      "text": "你合上了卷宗。",
-      "note": "【占位】状态门控：按档案状态走不同行文",
+      "text": "你合上档案夹。",
       "next": [
-        {
-          "when": { "hasFlag": "archive.demo.archive.anomalousLedger.status", "equals": "retained" },
-          "to": "demo.s.ledger.resolution.retained"
-        },
-        {
-          "when": { "hasFlag": "archive.demo.archive.anomalousLedger.status", "equals": "held" },
-          "to": "demo.s.ledger.resolution.held"
-        },
-        {
-          "when": { "hasFlag": "archive.demo.archive.anomalousLedger.status", "equals": "discarded" },
-          "to": "demo.s.ledger.resolution.discarded"
-        },
-        { "to": "demo.s.ledger.resolution.held" }
+        { "when": { "hasFlag": "ch1.ending", "equals": "retained" }, "to": "ch1.event.dinner.epilogue.retained" },
+        { "when": { "hasFlag": "ch1.ending", "equals": "held" }, "to": "ch1.event.dinner.epilogue.held" },
+        { "when": { "hasFlag": "ch1.ending", "equals": "discarded" }, "to": "ch1.event.dinner.epilogue.discarded" },
+        { "to": "ch1.event.dinner.epilogue.held" }
       ]
     },
     {
-      "id": "demo.s.ledger.resolution.retained",
+      "id": "ch1.event.dinner.epilogue.retained",
       "mode": "prose",
-      "text": "登记表多出一页。多出的那一页上，「第二份」被正式记下，给自己留了一个位置。",
-      "note": "【占位】保留路线",
-      "next": "demo.end.chapter1"
-    },
-    {
-      "id": "demo.s.ledger.resolution.held",
-      "mode": "prose",
-      "text": "你把它放回待核篮。没有结论，位置还空着——空着，也是一种记法。",
-      "note": "【占位】悬置路线",
-      "next": "demo.end.chapter1"
-    },
-    {
-      "id": "demo.s.ledger.resolution.discarded",
-      "mode": "prose",
-      "text": "这一行被红笔划掉。没有人再提起第四份饭。",
-      "note": "【占位】移出路线",
-      "next": "demo.end.chapter1"
-    },
-    {
-      "id": "demo.s.marketKeeper.before",
-      "mode": "dialogue",
-      "speaker": "demo.char.keeper",
-      "text": "“还没正经开门。要什么自己掂量。”",
-      "note": "【占位】门禁未满足入口"
-    },
-    {
-      "id": "demo.s.marketKeeper.moved",
-      "mode": "dialogue",
-      "speaker": "demo.char.keeper",
-      "text": "“听说你们安置区那户，总让摊上多留一份。替谁留的？”",
-      "note": "【占位】门禁满足后（收到饭碗档案后解锁）",
-      "next": "demo.s.marketKeeper.moved.2"
-    },
-    {
-      "id": "demo.s.marketKeeper.moved.2",
-      "mode": "dialogue",
-      "speaker": "demo.char.keeper",
-      "text": "“替一个不在场的人。饭，是要趁热吃的。”",
+      "text": "她把那半碗饭用保鲜膜盖好，留到明早。\n\n你看着桌上的第二只碗。\n\n这个家，一直替你留着一个位置。",
       "next": "$END"
     },
     {
-      "id": "demo.s.ricePot.inspect.1",
+      "id": "ch1.event.dinner.epilogue.held",
       "mode": "prose",
-      "text": "灶上还温着饭。锅底那一层，比饭桌上的人数多出半碗。",
-      "flags": [{ "flag": "demo.seen.pot", "value": true }],
+      "text": "她没有收碗，也没有盖锅。\n\n位置还空着装——像待核篮里那些等你再翻的记录。",
       "next": "$END"
     },
     {
-      "id": "demo.end.chapter1",
+      "id": "ch1.event.dinner.epilogue.discarded",
       "mode": "prose",
-      "text": "门外的汽笛声远了。这一份档案暂时安静下来。\n\n——境遇已记录，是否归档，由下一次翻开决定。",
-      "note": "【占位】章节结算占位",
+      "text": "「今晚，就这样吧。」\n\n她把锅里剩下的饭倒了。你看见那个位置空出来，像被红笔划掉的一行。",
       "next": "$END"
     }
   ]

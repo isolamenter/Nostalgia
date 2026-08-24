@@ -1,21 +1,27 @@
-/* —— 《归档故乡》全局样式：潮湿低饱和色板 —— */
+/* 《归档故乡》视觉基底：一张固定比例的 A4 竖向卷宗页 */
 :root {
-  --bg-0: #101718;
-  --bg-1: #162021;
-  --bg-2: #1c2829;
-  --ink: #cfd6ce;
-  --ink-dim: #8b9991;
-  --ink-faint: #5c6a63;
-  --line: #31403f;
-  --line-soft: #243130;
-  --accent: #9ab3b4;
-  --accent-dim: #5f7a7c;
-  --paper: #d8d2bf;
-  --paper-dim: #b7b09a;
-  --paper-ink: #3a382f;
-  --danger: #a25b55;
-  --keep: #93a2a0;
-  --shadow: rgba(0, 0, 0, 0.45);
+  --bg-0: #11191a;
+  --bg-1: #172224;
+  --bg-2: #203033;
+  --bg-3: #293a3c;
+  --ink: #d3d8d1;
+  --ink-dim: #9ba7a0;
+  --ink-faint: #75817a;
+  --line: #425355;
+  --line-soft: #2d3d3f;
+  --accent: #8fafb0;
+  --accent-dim: #668788;
+  --paper: #d0c8ae;
+  --paper-bright: #ded7bf;
+  --paper-dim: #aaa28b;
+  --paper-ink: #323833;
+  --danger: #9b554c;
+  --keep: #9aafa6;
+  --hold: #b7a36b;
+  --shadow: rgba(4, 8, 9, 0.62);
+  --font-display: 'Songti SC', STSong, 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --font-ui: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-mono: 'SFMono-Regular', 'Cascadia Mono', 'Roboto Mono', ui-monospace, monospace;
 }
 
 * {
@@ -25,52 +31,110 @@
 html,
 body,
 #root {
-  margin: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  margin: 0;
   overflow: hidden;
 }
 
 body {
-  background: var(--bg-0);
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(143, 175, 176, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 175, 176, 0.018) 1px, transparent 1px),
+    radial-gradient(circle at 50% 32%, #273335 0, #151d1e 50%, #0b1011 100%);
+  background-size:
+    24px 24px,
+    24px 24px,
+    auto;
   color: var(--ink);
-  font-family:
-    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system,
-    sans-serif;
+  font-family: var(--font-ui);
   font-size: 14px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 button {
-  font-family: inherit;
-  cursor: pointer;
+  min-height: 34px;
+  padding: 6px 12px;
   border: 1px solid var(--line);
+  border-radius: 2px;
   background: var(--bg-2);
   color: var(--ink);
-  padding: 6px 12px;
-  border-radius: 3px;
+  font: inherit;
+  cursor: pointer;
   transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
 }
 
 button:hover:not(:disabled) {
-  border-color: var(--accent-dim);
-  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--bg-3);
+  color: var(--paper-bright);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 3px;
 }
 
 button:disabled {
-  opacity: 0.4;
   cursor: not-allowed;
+  opacity: 0.38;
 }
 
-/* —— 布局 —— */
 .game-app {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: min(100vw, calc(100vh * 210 / 297));
+  height: min(100vh, calc(100vw * 297 / 210));
+  aspect-ratio: 210 / 297;
+  overflow: hidden;
+  container-type: size;
+  isolation: isolate;
+  background: var(--bg-0);
+  border: 1px solid rgba(208, 200, 174, 0.2);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.54),
+    0 4px 14px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.game-app::before {
+  position: absolute;
+  inset: 0;
+  z-index: 24;
+  pointer-events: none;
+  content: '';
+  background:
+    linear-gradient(
+      90deg,
+      rgba(208, 200, 174, 0.045),
+      transparent 1.4%,
+      transparent 98.6%,
+      rgba(0, 0, 0, 0.2)
+    ),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(143, 175, 176, 0.012) 6px);
+  mix-blend-mode: screen;
+}
+
+.game-app::after {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 8px;
+  z-index: 23;
+  width: 1px;
+  pointer-events: none;
+  content: '';
+  background: rgba(208, 200, 174, 0.14);
 }
 
 .game-host {
@@ -78,10 +142,48 @@ button:disabled {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg-1);
+  overflow: hidden;
+  background: var(--bg-0);
+}
+
+.game-host::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  box-shadow: inset 0 0 70px 18px rgba(3, 8, 9, 0.5);
 }
 
 .game-host canvas {
   display: block;
+  width: 100% !important;
+  height: 100% !important;
   image-rendering: pixelated;
+}
+
+::selection {
+  background: rgba(143, 175, 176, 0.34);
+  color: var(--paper-bright);
+}
+
+@media (max-width: 520px), (max-height: 680px) {
+  body {
+    background: #0b1011;
+  }
+
+  .game-app {
+    border: 0;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }

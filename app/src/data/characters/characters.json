@@ -1,23 +1,30 @@
 [
   {
-    "id": "demo.char.ma",
+    "id": "ch1.char.ma",
     "name": "母亲",
-    "role": "第一章·不在场的亲属",
+    "role": "第一章 · 旧街尽头那户人家",
     "color": "#c2b8a6",
-    "shortBio": "【占位】安置区那户人家总替她留一份饭。"
+    "shortBio": "饭总是多留一点，手没改过来。"
   },
   {
-    "id": "demo.char.keeper",
-    "name": "摊主",
-    "role": "第一章·菜市场摊主",
-    "color": "#b3bea8",
-    "shortBio": "【占位】认得安置区数得出人头的那类人。"
-  },
-  {
-    "id": "demo.char.registrar",
-    "name": "档案员",
-    "role": "第一章·档案室值班员",
+    "id": "ch1.char.huang",
+    "name": "档案员·黄",
+    "role": "第一章 · 县档案馆值班员",
     "color": "#a8b3bf",
-    "shortBio": "【占位】管着清点表与待核篮的第三年。"
+    "shortBio": "戴眼镜，说话很快：档案比人记得久。"
+  },
+  {
+    "id": "ch1.char.keeper",
+    "name": "摊主",
+    "role": "第一章 · 菜市场卖肉摊主",
+    "color": "#b3bea8",
+    "shortBio": "最小能切半斤。认得安置区数得出人头的那类人。"
+  },
+  {
+    "id": "ch1.char.granny",
+    "name": "隔壁老太太",
+    "role": "第一章 · 隔壁邻居",
+    "color": "#b0acb8",
+    "shortBio": "让母亲替她买菜带药的老邻居。"
   }
 ]

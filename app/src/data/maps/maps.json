@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo.maps.residence",
-    "name": "安置区住宅",
+    "id": "ch1.maps.home",
+    "name": "安置区住宅 · 旧街尽头",
     "chapter": "ch1",
     "width": 40,
     "height": 22,
@@ -17,82 +17,33 @@
     ],
     "spawn": { "x": 6, "y": 12 },
     "decorate": [
-      { "kind": "rect", "x": -1, "y": -1, "w": 42, "h": 1, "color": "#26373a" },
-      { "kind": "rect", "x": -1, "y": 22, "w": 42, "h": 1, "color": "#26373a" },
-      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 24, "color": "#26373a" },
-      { "kind": "rect", "x": 40, "y": -1, "w": 1, "h": 24, "color": "#26373a" },
-      { "kind": "label", "x": 20, "y": 2, "color": "#9ab3b4", "text": "安置区住宅 · 一层（占位）" },
-      { "kind": "label", "x": 11, "y": 15, "color": "#9ab3b4", "text": "饭桌" },
-      { "kind": "label", "x": 33, "y": 3, "color": "#9ab3b4", "text": "床" }
+      { "kind": "rect", "x": -1, "y": -1, "w": 42, "h": 1, "color": "#1d292a" },
+      { "kind": "rect", "x": -1, "y": 22, "w": 42, "h": 1, "color": "#1d292a" },
+      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 24, "color": "#1d292a" },
+      { "kind": "rect", "x": 40, "y": -1, "w": 1, "h": 24, "color": "#1d292a" },
+      { "kind": "label", "x": 20, "y": 2, "color": "#8fa6a4", "text": "安置区住宅 · 旧街尽头" },
+      { "kind": "label", "x": 11, "y": 15, "color": "#8fa6a4", "text": "饭桌" },
+      { "kind": "label", "x": 33, "y": 3, "color": "#8fa6a4", "text": "床" },
+      { "kind": "label", "x": 2, "y": 7, "color": "#8fa6a4", "text": "门口 · 木柜" },
+      { "kind": "label", "x": 27, "y": 18, "color": "#8fa6a4", "text": "杂物柜" }
     ],
     "exits": [
-      { "id": "ext.archiveRoom", "x": 38, "y": 10, "w": 2, "h": 3, "to": "demo.maps.archiveRoom" },
-      { "id": "ext.kitchen", "x": 2, "y": 20, "w": 3, "h": 2, "to": "demo.maps.kitchen" }
+      { "id": "ext.kitchen", "x": 3, "y": 20, "w": 3, "h": 2, "to": "ch1.maps.kitchen" },
+      { "id": "ext.market", "x": 37, "y": 10, "w": 2, "h": 3, "to": "ch1.maps.market" },
+      { "id": "ext.archive", "x": 1, "y": 2, "w": 2, "h": 2, "to": "ch1.maps.archive" }
     ],
-    "interactables": ["demo.object.riceBowl", "demo.object.luggage", "demo.object.sofa"],
-    "bg": { "color": "#2a3d3e", "accent": "#162326" }
+    "interactables": [
+      "ch1.object.phone",
+      "ch1.object.diningTable",
+      "ch1.object.pillbox",
+      "ch1.object.tableNote",
+      "ch1.object.spareChair",
+      "ch1.object.ma"
+    ],
+    "bg": { "color": "#263738", "accent": "#131c1d" }
   },
   {
-    "id": "demo.maps.archiveRoom",
-    "name": "档案室",
-    "chapter": "ch1",
-    "width": 24,
-    "height": 16,
-    "solidTiles": [
-      [5, 4], [5, 5], [5, 6], [5, 7], [5, 8], [5, 9], [5, 10],
-      [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [6, 10],
-      [13, 3], [13, 4], [13, 5], [13, 6], [13, 7], [13, 8], [13, 9], [13, 10], [13, 11],
-      [14, 3], [14, 4], [14, 5], [14, 6], [14, 7], [14, 8], [14, 9], [14, 10], [14, 11],
-      [20, 11], [21, 11], [22, 11], [20, 12], [21, 12], [22, 12]
-    ],
-    "spawn": { "x": 3, "y": 13 },
-    "decorate": [
-      { "kind": "rect", "x": -1, "y": -1, "w": 26, "h": 1, "color": "#2b2e2f" },
-      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 18, "color": "#2b2e2f" },
-      { "kind": "rect", "x": 24, "y": -1, "w": 1, "h": 18, "color": "#2b2e2f" },
-      { "kind": "label", "x": 12, "y": 2, "color": "#a8a8a8", "text": "档案室（占位）" },
-      { "kind": "label", "x": 5, "y": 11, "color": "#a8a8a8", "text": "甲柜" },
-      { "kind": "label", "x": 13, "y": 12, "color": "#a8a8a8", "text": "乙柜" }
-    ],
-    "exits": [
-      { "id": "ext.residence", "x": 1, "y": 12, "w": 2, "h": 2, "to": "demo.maps.residence" },
-      { "id": "ext.market", "x": 22, "y": 1, "w": 2, "h": 2, "to": "demo.maps.market" }
-    ],
-    "interactables": ["demo.object.filingCabinet", "demo.object.registrar"],
-    "bg": { "color": "#23272a", "accent": "#121416" }
-  },
-  {
-    "id": "demo.maps.market",
-    "name": "菜市场",
-    "chapter": "ch1",
-    "width": 34,
-    "height": 20,
-    "solidTiles": [
-      [10, 6], [11, 6], [10, 7], [11, 7],
-      [16, 6], [17, 6], [16, 7], [17, 7],
-      [22, 6], [23, 6], [22, 7], [23, 7],
-      [8, 10], [9, 10], [10, 10], [11, 10], [12, 10], [13, 10], [14, 10], [15, 10],
-      [16, 10], [17, 10], [18, 10], [19, 10], [20, 10], [21, 10], [22, 10], [23, 10], [24, 10],
-      [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [6, 10], [6, 11], [6, 12]
-    ],
-    "spawn": { "x": 5, "y": 17 },
-    "decorate": [
-      { "kind": "rect", "x": -1, "y": -1, "w": 36, "h": 1, "color": "#2e3233" },
-      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 22, "color": "#2e3233" },
-      { "kind": "rect", "x": 34, "y": -1, "w": 1, "h": 22, "color": "#2e3233" },
-      { "kind": "label", "x": 17, "y": 2, "color": "#a8b4a6", "text": "菜市场（占位）" },
-      { "kind": "label", "x": 11, "y": 5, "color": "#a8b4a6", "text": "摊" },
-      { "kind": "label", "x": 17, "y": 5, "color": "#a8b4a6", "text": "摊" },
-      { "kind": "label", "x": 23, "y": 5, "color": "#a8b4a6", "text": "摊" }
-    ],
-    "exits": [
-      { "id": "ext.archiveRoom", "x": 31, "y": 2, "w": 2, "h": 2, "to": "demo.maps.archiveRoom" }
-    ],
-    "interactables": ["demo.object.marketKeeper"],
-    "bg": { "color": "#2b3231", "accent": "#161b1a" }
-  },
-  {
-    "id": "demo.maps.kitchen",
+    "id": "ch1.maps.kitchen",
     "name": "厨房",
     "chapter": "ch1",
     "width": 16,
@@ -107,16 +58,90 @@
     ],
     "spawn": { "x": 7, "y": 9 },
     "decorate": [
-      { "kind": "rect", "x": -1, "y": -1, "w": 18, "h": 1, "color": "#2a3030" },
-      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 14, "color": "#2a3030" },
-      { "kind": "rect", "x": 16, "y": -1, "w": 1, "h": 14, "color": "#2a3030" },
-      { "kind": "label", "x": 8, "y": 5, "color": "#a9b2ae", "text": "厨房（占位）" },
-      { "kind": "label", "x": 9, "y": 0, "color": "#a9b2ae", "text": "灶" }
+      { "kind": "rect", "x": -1, "y": -1, "w": 18, "h": 1, "color": "#1c2524" },
+      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 14, "color": "#1c2524" },
+      { "kind": "rect", "x": 16, "y": -1, "w": 1, "h": 14, "color": "#1c2524" },
+      { "kind": "label", "x": 8, "y": 5, "color": "#9fb0aa", "text": "厨房" },
+      { "kind": "label", "x": 9, "y": 0, "color": "#9fb0aa", "text": "灶台 · 电饭锅" },
+      { "kind": "label", "x": 3, "y": 5, "color": "#9fb0aa", "text": "水壶" }
     ],
     "exits": [
-      { "id": "ext.residence", "x": 6, "y": 11, "w": 4, "h": 1, "to": "demo.maps.residence" }
+      { "id": "ext.home", "x": 6, "y": 11, "w": 4, "h": 1, "to": "ch1.maps.home" }
     ],
-    "interactables": ["demo.object.ricePot"],
-    "bg": { "color": "#283030", "accent": "#131818" }
+    "interactables": [
+      "ch1.object.riceCooker",
+      "ch1.object.dishRack",
+      "ch1.object.stove"
+    ],
+    "bg": { "color": "#28302f", "accent": "#121816" }
+  },
+  {
+    "id": "ch1.maps.archive",
+    "name": "县档案馆 · 档案室",
+    "chapter": "ch1",
+    "width": 24,
+    "height": 16,
+    "solidTiles": [
+      [5, 4], [5, 5], [5, 6], [5, 7], [5, 8], [5, 9], [5, 10],
+      [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [6, 10],
+      [13, 3], [13, 4], [13, 5], [13, 6], [13, 7], [13, 8], [13, 9], [13, 10], [13, 11],
+      [14, 3], [14, 4], [14, 5], [14, 6], [14, 7], [14, 8], [14, 9], [14, 10], [14, 11],
+      [20, 11], [21, 11], [22, 11], [20, 12], [21, 12], [22, 12]
+    ],
+    "spawn": { "x": 3, "y": 13 },
+    "decorate": [
+      { "kind": "rect", "x": -1, "y": -1, "w": 26, "h": 1, "color": "#1c2227" },
+      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 18, "color": "#1c2227" },
+      { "kind": "rect", "x": 24, "y": -1, "w": 1, "h": 18, "color": "#1c2227" },
+      { "kind": "label", "x": 11, "y": 2, "color": "#94a4ad", "text": "县档案馆 · 档案室" },
+      { "kind": "label", "x": 5, "y": 11, "color": "#94a4ad", "text": "甲柜" },
+      { "kind": "label", "x": 13, "y": 12, "color": "#94a4ad", "text": "乙柜" },
+      { "kind": "label", "x": 21, "y": 10, "color": "#94a4ad", "text": "复印机" }
+    ],
+    "exits": [
+      { "id": "ext.home", "x": 1, "y": 12, "w": 2, "h": 2, "to": "ch1.maps.home" }
+    ],
+    "interactables": [
+      "ch1.object.ledgerBook",
+      "ch1.object.distLedger",
+      "ch1.object.transferSheet",
+      "ch1.object.copier",
+      "ch1.object.huang"
+    ],
+    "bg": { "color": "#232830", "accent": "#101418" }
+  },
+  {
+    "id": "ch1.maps.market",
+    "name": "菜市场",
+    "chapter": "ch1",
+    "width": 34,
+    "height": 20,
+    "solidTiles": [
+      [10, 6], [11, 6], [10, 7], [11, 7],
+      [16, 6], [17, 6], [16, 7], [17, 7],
+      [22, 6], [23, 6], [22, 7], [23, 7],
+      [8, 10], [9, 10], [10, 10], [11, 10], [12, 10], [13, 10], [14, 10], [15, 10],
+      [16, 10], [17, 10], [18, 10], [19, 10], [20, 10], [21, 10], [22, 10], [23, 10], [24, 10],
+      [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [6, 10], [6, 11], [6, 12]
+    ],
+    "spawn": { "x": 5, "y": 17 },
+    "decorate": [
+      { "kind": "rect", "x": -1, "y": -1, "w": 36, "h": 1, "color": "#1d2523" },
+      { "kind": "rect", "x": -1, "y": -1, "w": 1, "h": 22, "color": "#1d2523" },
+      { "kind": "rect", "x": 34, "y": -1, "w": 1, "h": 22, "color": "#1d2523" },
+      { "kind": "label", "x": 17, "y": 2, "color": "#9fb0aa", "text": "菜市场" },
+      { "kind": "label", "x": 11, "y": 5, "color": "#9fb0aa", "text": "卖肉摊" },
+      { "kind": "label", "x": 17, "y": 5, "color": "#9fb0aa", "text": "青菜摊" },
+      { "kind": "label", "x": 23, "y": 5, "color": "#9fb0aa", "text": "药房柜台" }
+    ],
+    "exits": [
+      { "id": "ext.home", "x": 31, "y": 2, "w": 2, "h": 2, "to": "ch1.maps.home" }
+    ],
+    "interactables": [
+      "ch1.object.meatStall",
+      "ch1.object.pharmacy",
+      "ch1.object.vegStall"
+    ],
+    "bg": { "color": "#2b3330", "accent": "#151b18" }
   }
 ]

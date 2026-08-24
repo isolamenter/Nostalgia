@@ -104,10 +104,23 @@ export async function loadCatalog(): Promise<DataCatalog> {
   const maps = index('maps', parseOrThrow('maps', mapsFileSchema, mapsRaw.flat()))
   const archives = index('archives', parseOrThrow('archives', archivesFileSchema, archivesRaw.flat()))
 
-  // 交叉引用门禁：物件所在 map / 档案 / 章节入口必须存在（内容生产防呆）
+  // 交叉引用门禁：物件所在 map / 章节入口必须存在（内容生产防呆）
   for (const [id, item] of items) {
     if (!maps.has(item.location)) {
       throw new Error(`数据校验失败 [items.${id}]: 地点 "${item.location}" 不存在于 maps.json`)
+    }
+  }
+
+  for (const chapter of chapters.values()) {
+    if (chapter.startMap && !maps.has(chapter.startMap)) {
+      throw new Error(
+        `数据校验失败 [story.${chapter.chapterId}]: startMap "${chapter.startMap}" 不存在于 maps.json`,
+      )
+    }
+    if (chapter.intro && !chapter.nodes.some((n) => n.id === chapter.intro!.node)) {
+      throw new Error(
+        `数据校验失败 [story.${chapter.chapterId}]: intro.node "${chapter.intro.node}" 不存在于本章节 nodes`,
+      )
     }
   }
 

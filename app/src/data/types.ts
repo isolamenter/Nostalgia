@@ -85,6 +85,10 @@ export interface ChapterData {
   chapterId: string
   title: string
   nodes: StoryNode[]
+  /** 框架扩展：本章起始地图 id（进入本章全新会话时出生点） */
+  startMap?: string
+  /** 框架扩展：首次进入本章起始地图自动展开的开场散文（node 为该章节点 id） */
+  intro?: { flag: string; node: string }
 }
 
 /** 档案媒介类型 */

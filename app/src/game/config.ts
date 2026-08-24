@@ -1,7 +1,7 @@
-import Phaser from 'phaser'
-import { GAME_HEIGHT, GAME_WIDTH } from './constants'
-import { BootstrapScene } from './scenes/BootstrapScene'
-import { MapScene } from './scenes/MapScene'
+import Phaser from 'phaser';
+import { GAME_HEIGHT, GAME_WIDTH } from './constants';
+import { BootstrapScene } from './scenes/BootstrapScene';
+import { MapScene } from './scenes/MapScene';
 
 export function buildConfig(parent: HTMLElement): Phaser.Types.Core.GameConfig {
   return {
@@ -9,7 +9,7 @@ export function buildConfig(parent: HTMLElement): Phaser.Types.Core.GameConfig {
     parent,
     width: GAME_WIDTH,
     height: GAME_HEIGHT,
-    backgroundColor: '#1b2323',
+    backgroundColor: '#11191a',
     physics: {
       default: 'arcade',
       arcade: {
@@ -24,7 +24,8 @@ export function buildConfig(parent: HTMLElement): Phaser.Types.Core.GameConfig {
     render: {
       pixelArt: true,
       antialias: false,
+      roundPixels: true,
     },
     scene: [BootstrapScene, MapScene],
-  }
+  };
 }

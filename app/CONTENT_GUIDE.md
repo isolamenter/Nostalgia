@@ -4,13 +4,13 @@
 
 ## 1. 数据目录一览
 
-| 目录 | 文件 | 内容 | 校验 schema |
-|---|---|---|---|
-| `src/data/story/` | `chapter01.json` | 章节（剧情节点图） | `chapterFileSchema` |
-| `src/data/characters/` | `characters.json` | 角色 | 角色数组 |
-| `src/data/items/` | `objects.json` | 可交互物件 / NPC | 物件数组 |
-| `src/data/maps/` | `maps.json` | 地图 / 场景（栅格驱动） | 地图数组 |
-| `src/data/archives/` | `archives.json` | 档案条目（框架扩展目录） | 档案数组 |
+| 目录                   | 文件              | 内容                     | 校验 schema         |
+| ---------------------- | ----------------- | ------------------------ | ------------------- |
+| `src/data/story/`      | `chapter01.json`  | 章节（剧情节点图）       | `chapterFileSchema` |
+| `src/data/characters/` | `characters.json` | 角色                     | 角色数组            |
+| `src/data/items/`      | `objects.json`    | 可交互物件 / NPC         | 物件数组            |
+| `src/data/maps/`       | `maps.json`       | 地图 / 场景（栅格驱动）  | 地图数组            |
+| `src/data/archives/`   | `archives.json`   | 档案条目（框架扩展目录） | 档案数组            |
 
 > `archives.json` 是规范文档四目录之外、由框架新增的目录，用于存放档案内容定义（发现来源、卡面行、按状态变化的"现实解释"）。
 
@@ -20,32 +20,33 @@
 
 ### 剧情节点 `StoryNode`
 
-| 字段 | 来源 | 说明 |
-|---|---|---|
-| `id` | 规范 | 全局唯一 |
-| `speaker` | 规范* | *框架放宽为可选：散文段落可省略（无 speaker ⇒ 散文模式） |
-| `text` | 规范 | 允许多行 `\n` 长散文 |
-| `choices` | 规范 | 选择列表 |
-| `flags` | 规范 | 进入节点时应用的状态变更 |
-| `next` | 框架扩展 | 线性/条件跳转（`"节点id"` 或 `[{when,to}]` 规则数组） |
-| `mode` | 框架扩展 | `"prose"` / `"dialogue"`（缺省按有无 speaker 推断） |
-| `once` | 框架扩展 | 一次性节点 |
-| `note` | 框架扩展 | 给作者的备注，不影响运行 |
+| 字段      | 来源     | 说明                                                     |
+| --------- | -------- | -------------------------------------------------------- |
+| `id`      | 规范     | 全局唯一                                                 |
+| `speaker` | 规范*    | *框架放宽为可选：散文段落可省略（无 speaker ⇒ 散文模式） |
+| `text`    | 规范     | 允许多行 `\n` 长散文                                     |
+| `choices` | 规范     | 选择列表                                                 |
+| `flags`   | 规范     | 进入节点时应用的状态变更                                 |
+| `next`    | 框架扩展 | 线性/条件跳转（`"节点id"` 或 `[{when,to}]` 规则数组）    |
+| `mode`    | 框架扩展 | `"prose"` / `"dialogue"`（缺省按有无 speaker 推断）      |
+| `once`    | 框架扩展 | 一次性节点                                               |
+| `note`    | 框架扩展 | 给作者的备注，不影响运行                                 |
 
 **节点如何链接（框架扩展的 `next` 约定）：**
+
 - 散文长段：每段一个节点，`next: "下一节点id"` 串成推进链。
 - 结束对话：`next: "$END"`。
 - 条件分流：`next: [{ when: {...}, to: "A" }, { to: "兜底" }]`（数组按序求值，命中的第一条生效；`when` 可省略作兜底）。
 
 ### 选择项 `Choice`
 
-| 字段 | 来源 | 说明 |
-|---|---|---|
-| `id` | 框架扩展 | 稳定 id（存档/日志需要） |
-| `text` | 规范 | 选项文案 |
-| `next` | 框架扩展 | 选中后跳转（缺省用节点级 next） |
-| `flags` | 规范 | 选中时应用 |
-| `condition` | 框架扩展 | 满足才显示该选项 |
+| 字段        | 来源     | 说明                            |
+| ----------- | -------- | ------------------------------- |
+| `id`        | 框架扩展 | 稳定 id（存档/日志需要）        |
+| `text`      | 规范     | 选项文案                        |
+| `next`      | 框架扩展 | 选中后跳转（缺省用节点级 next） |
+| `flags`     | 规范     | 选中时应用                      |
+| `condition` | 框架扩展 | 满足才显示该选项                |
 
 ### 档案状态 `ArchiveStatus`
 
@@ -62,10 +63,11 @@
 
 ## 3. 新增一个章节
 
-1. 复制 `src/data/story/chapter01.json` → `chapter02.json`，改 `chapterId` 与 `title`。
-2. 重写 `nodes` 数组；链式推进记得用 `next`，收尾指针 `next: "$END"`。
-3. 其余章节可被 `loaders` 自动收集（`import.meta.glob` 扫描 `story/*.json`），无需注册。
-4. 让物件/NPC 的 `inspect` / `dialogue` 指向新的入口节点 id；跨章节跳转不支持（节点图按章独立）。
+1. 复制 `src/data/story/chapter01.json` → `chapter02.json`，改 `chapterId` 与 `title`，并补 `startMap`：**本章起点地图 id**（新游戏出生点，`MapScene`/`newGame` 优先读取）。
+2. 可加 `intro`：`{ "flag": "<一次性flag>", "node": "<章节内开场节点id>" }` —— 首次进入 `startMap` 时自动展开该散文节点（数据驱动开场，替代框架里的硬编码钩子）。
+3. 重写 `nodes` 数组；链式推进记得用 `next`，收尾指针 `next: "$END"`。
+4. 其余章节可被 `loaders` 自动收集（`import.meta.glob` 扫描 `story/*.json`），无需注册。
+5. 让物件/NPC 的 `inspect` / `dialogue` 指向新的入口节点 id；跨章节跳转不支持（节点图按章独立）。
 
 ## 4. 新增角色
 
@@ -91,11 +93,12 @@
   "name": "饭碗",
   "kind": "object",
   "location": "demo.maps.residence",
-  "x": 11, "y": 15,
+  "x": 11,
+  "y": 15,
   "interactRange": 1.5,
-  "inspect": "demo.s.bowl.inspect.1",        // 调查入口节点
+  "inspect": "demo.s.bowl.inspect.1", // 调查入口节点
   "provideArchive": "demo.archive.entryTally", // 调查后收录的档案
-  "requirements": { "hasArchive": "…" },      // 门禁（不满足走 unmetInspect）
+  "requirements": { "hasArchive": "…" }, // 门禁（不满足走 unmetInspect）
   "unmetInspect": "demo.s.marketKeeper.before",
   "collect": { "id": "ch1.item.storageReceipt" }, // 实物进背包
   "once": true
@@ -138,6 +141,8 @@
 
 改任意 JSON 保存 → 编辑器/Vite 判定模块失效 → 重新校验并 push 进 store，**页面无需刷新**即生效。若写入非法数据，控制台会打印校验失败原因，且旧数据保持不动（不崩页）。
 
-## 10. demo 端到端验证路径（框架自检）
+## 10. 第一章《第二份》端到端验证路径
 
-`npm run dev` 后依次：标题页「开始新的档案」 → 散文开场 → 察饭碗（收档 `entryTally`）→ 捡行李（入包）→ 出门到档案室开铁皮柜（收档 `anomalousLedger`）→ 档案抽屉对它选「保留/悬置/移出」→ 回档案员/摊主对话可见状态影响 → Esc 手动存档 → F5 → 「继续」回到原位置、档案与状态俱在。
+`npm run dev` 后依次：标题页「开始新的档案」 → 自动开场散文（回家）→ 门口察手机（收档 `signal`）→ 饭桌察碗（收档 `bowls`）/ 药盒（收档 `pillbox`）/ 桌角小票（入包）→ 厨房察电饭锅、晾碗架收裂纹瓷碗 → 出门到县档案馆、收齐 `ledger` / `distribution` / `transfer` 三份记录、与档案员黄对话（红圈选项在收档后出现）→ 菜市场与摊主对话（收 `signal` 后解锁「多留一份」话）、药房买药入包 → 回家先与母亲说话被措辞挡下 → 收齐四份异常记录后再与母亲 → 完整饭桌事件 → 终局三选一 → 章节结算浮层（按三选一显示不同结局行文 + 档案状态汇总）→ 保存/回到标题。
+
+> 旧 `demo.*` 占位数据已被正式第一章取代；旧 demo 存档因引用已删 id 会「地图数据缺失」，开发期删除即可。

@@ -1,78 +1,266 @@
 [
   {
-    "id": "demo.archive.entryTally",
-    "type": "cleanup-list",
-    "title": "临时安置·发放入户登记（第一页）",
+    "id": "ch1.archive.signal",
+    "type": "incident-report",
+    "title": "青潭上游站 · 异常信号（截图）",
     "lines": [
-      "实到  三  （户）",
-      "领发  四  （份）",
-      "（铅笔补写：+1）",
-      "※ 第一页簿面，右下角有水渍"
+      "青潭上游水文气象观测点（已撤销 13 年）",
+      "实时回传 · 五行记录",
+      "雨量  0.2 mm",
+      "湿度  98 %",
+      "骨骼已清洗",
+      "晚饭分成两份",
+      "补录：第二份未动 / 第二份收起 / 第二份留到明早",
+      "※ 撤销站点的异常上传，存于手机截图"
     ],
-    "foundFrom": "demo.object.riceBowl",
+    "foundFrom": "ch1.object.phone",
     "interpretations": [
       {
         "forStatus": "verified",
-        "title": "已核 · 发放入户登记",
+        "title": "已核 · 异常信号",
         "lines": [
-          "核对：名单右下角的「+1」有第二行笔迹。",
-          "「+1」的名字栏是空着的。",
-          "※ 本页已由档案员复核（占位）"
+          "与旧资料比对：镜子、药盒、骨骼俱有出处。",
+          "唯「第二份」的句子，找不到完整原文。"
         ]
       },
       {
         "forStatus": "retained",
-        "title": "保留 · 发放入户登记",
+        "title": "保留 · 异常信号",
         "lines": [
-          "「+1」那一格被铅笔圈出，边角折了一个角。",
-          "替不在场的人，留一个位置。（占位）"
+          "你把它归入档案夹。",
+          "「第二份」，从此有了一行自己的记录。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 异常信号",
+        "lines": [
+          "没有判。你让它停在待核篮里。",
+          "位置还空着。"
         ]
       },
       {
         "forStatus": "discarded",
-        "title": "移出 · 发放入户登记",
+        "title": "移出 · 异常信号",
         "lines": [
-          "这页被垫在碗底，字被水洇开。",
-          "「+1」已经看不清了。（占位）"
+          "停用申请通过，接口关闭。",
+          "这条信号不再回传。"
         ]
       }
     ]
   },
   {
-    "id": "demo.archive.anomalousLedger",
+    "id": "ch1.archive.ledger",
     "type": "ledger",
-    "title": "临时安置清点表（乙柜·节选）",
+    "title": "临时安置 · 清点表（节选）",
     "lines": [
-      "日期：十一月廿七",
-      "实到  3  户",
-      "补登  +1  （铅笔）",
-      "备注：（空白）",
-      "※ 第二层抽屉，纸边有一道拉痕"
+      "实到人数：三 → 四（铅笔补写 +1）",
+      "备注：人未回，先保留",
+      "第二页中间：你的名字",
+      "身份材料转接，缺本人签字，由家属代交",
+      "※ 日期在你离开南岭后的第三年"
     ],
-    "foundFrom": "demo.object.filingCabinet",
+    "foundFrom": "ch1.object.ledgerBook",
     "interpretations": [
       {
-        "forStatus": "retained",
-        "title": "多出一页 · 清点表",
+        "forStatus": "verified",
+        "title": "已核 · 清点表",
         "lines": [
-          "多出的一页上，写着第二份的名字。",
-          "登记正式接纳了这份「+1」。（占位）"
+          "核对两册一致，那一个 +1 确实在。",
+          "铅笔写的补笔，与另一册复印件吻合。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 清点表",
+        "lines": [
+          "那一个 +1 被正式记下，给自己留了一个位置。",
+          "登记接纳了这份「+1」。"
         ]
       },
       {
         "forStatus": "held",
-        "title": "待核 · 清点表",
+        "title": "悬置 · 清点表",
         "lines": [
-          "它被放回待核篮。",
-          "没有结论——位置还空着。（占位）"
+          "你没有表态。铅笔写的 +1 还悬在那儿，谁都能再改。"
         ]
       },
       {
         "forStatus": "discarded",
-        "title": "划掉 · 清点表",
+        "title": "移出 · 清点表",
         "lines": [
-          "这一行被红笔划掉。",
-          "事实上，并没有这个人。（占位）"
+          "这一页被红笔划掉。",
+          "「+1」的名字栏，仍是空的。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch1.archive.distribution",
+    "type": "ledger",
+    "title": "暴雨后 · 发放入户记录（红圈）",
+    "lines": [
+      "五栋二单元  实到三  领四份  备注：一人去医院陪护",
+      "七栋一单元  实到二  领三份  备注：孩子在亲戚家，明天接回",
+      "十一栋三单元 实到一  领二份  备注：陈启德晚些送来",
+      "红笔圈注：物资按现场人数发放，不得预留",
+      "附注：已送（没有解释送给谁）",
+      "※ 备注与「已送」是母亲的笔迹"
+    ],
+    "foundFrom": "ch1.object.distLedger",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 发放入户记录",
+        "lines": [
+          "「已送」与车次栏旁「末车再核」笔迹一致。",
+          "是母亲补的，规则没有覆盖的一行。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 发放入户记录",
+        "lines": [
+          "红圈旁边，她补的「已送」被保留下来。",
+          "未到的人，也一样算这户的一分子。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 发放入户记录",
+        "lines": [
+          "「已送」说不清送给谁。",
+          "你让它停在待核篮里，先不判。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 发放入户记录",
+        "lines": [
+          "红圈生效。",
+          "未到的，不算数。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch1.archive.transfer",
+    "type": "memo",
+    "title": "转运复核单（人手一份）",
+    "lines": [
+      "按户抄一遍人数",
+      "母亲改过的几户，没有改回实到数",
+      "车次栏旁：未到，末车再核",
+      "※ 字迹挤得很紧，不愿占下一行"
+    ],
+    "foundFrom": "ch1.object.transferSheet",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 转运复核单",
+        "lines": [
+          "复核单与清点表互相印证。",
+          "「末车再核」最终是对上了，还是没有，没有人记得。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 转运复核单",
+        "lines": [
+          "「末车再核」被保留。",
+          "它留给未到的人一整个末车的等待。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 转运复核单",
+        "lines": [
+          "未到就是未到。",
+          "你先把它收起来，等末车。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 转运复核单",
+        "lines": [
+          "这张单子被抽走。",
+          "末车之后，没有重核的必要。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch1.archive.pillbox",
+    "type": "receipt",
+    "title": "药盒 · 母亲的药",
+    "lines": [
+      "一格空",
+      "两格还有药",
+      "最后一格：半片白色药片",
+      "※ 距今只剩几天的量；她自己记得"
+    ],
+    "foundFrom": "ch1.object.pillbox",
+    "interpretations": [
+      {
+        "forStatus": "retained",
+        "title": "保留 · 药盒",
+        "lines": [
+          "你要替她把药带上。",
+          "半片白药片，也是留的一份。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 药盒",
+        "lines": [
+          "药还有几天的量。",
+          "你记下日期，先不补。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 药盒",
+        "lines": [
+          "空掉的一格不会再填。",
+          "她自己的药，喜欢自己惦记。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch1.archive.bowls",
+    "type": "registration",
+    "title": "饭碗 · 饭桌上的一双",
+    "lines": [
+      "瓷碗：碗口一道裂纹（还能装蒜）",
+      "不锈钢碗：用水冲了冲，扣在一边",
+      "锅里还剩一点，盖着锅盖",
+      "※ 第二份，是留给晚上或者明早的"
+    ],
+    "foundFrom": "ch1.object.diningTable",
+    "interpretations": [
+      {
+        "forStatus": "retained",
+        "title": "保留 · 饭碗",
+        "lines": [
+          "两只碗并排扣在晾碗架上。",
+          "第二个位置，留下来了。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 饭碗",
+        "lines": [
+          "裂了的碗还放着，能装蒜。",
+          "第二份，先不倒掉。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 饭碗",
+        "lines": [
+          "裂纹的瓷碗终于被换掉了。",
+          "饭桌边，只剩一个位置。"
         ]
       }
     ]

@@ -84,6 +84,8 @@ export const chapterSchema: z.ZodType<ChapterData> = strictObj(
     chapterId: z.string().min(1),
     title: z.string(),
     nodes: z.array(storyNodeSchema),
+    startMap: z.string().min(1).optional(),
+    intro: z.object({ flag: z.string().min(1), node: z.string().min(1) }).strict().optional(),
   }),
 )
 
