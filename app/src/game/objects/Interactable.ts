@@ -2,8 +2,19 @@ import Phaser from 'phaser';
 import type { InteractableDef } from '../../data/types';
 import { useGameStore } from '../../state/store';
 import { evalCondition } from '../../engine/dialogue/conditions';
-import { TILE } from '../constants';
+import {
+  TILE,
+  TOKENS,
+  cssColor,
+  cssRgba,
+  darken,
+  rgb,
+  rgbToken,
+  UI_FONT,
+  MONO_FONT,
+} from '../constants';
 import { ensureItemTexture } from './Decor';
+import { itemName } from '../../data/items/names';
 import type { Player } from './Player';
 
 export class Interactable extends Phaser.GameObjects.Container {
@@ -22,7 +33,7 @@ export class Interactable extends Phaser.GameObjects.Container {
     this.spriteName = def.kind === 'npc' ? 'placeholder-npc' : 'placeholder-item';
     this.setDepth(5);
 
-    const tileColor = def.kind === 'npc' ? 0x9b554c : 0x8fafb0;
+    const tileColor = def.kind === 'npc' ? rgbToken('danger') : rgbToken('accent');
     this.add(
       new Phaser.GameObjects.Ellipse(
         scene,
@@ -30,13 +41,13 @@ export class Interactable extends Phaser.GameObjects.Container {
         7,
         TILE * 0.82,
         TILE * 0.34,
-        0x080d0e,
+        rgb(darken(TOKENS.bg0, 0.55)),
         0.32,
       ).setOrigin(0.5),
     );
     this.add(
-      new Phaser.GameObjects.Rectangle(scene, 0, 0, TILE * 0.82, TILE * 0.82, tileColor, 0.15)
-        .setStrokeStyle(1, tileColor, 0.72)
+      new Phaser.GameObjects.Rectangle(scene, 0, 0, TILE * 0.82, TILE * 0.82, tileColor, 0.12)
+        .setStrokeStyle(1, tileColor, 0.5)
         .setOrigin(0.5),
     );
     const go = scene.add.image(0, 0, this.spriteName).setOrigin(0.5);
@@ -44,10 +55,10 @@ export class Interactable extends Phaser.GameObjects.Container {
 
     const label = scene.add
       .text(0, TILE * 0.57, def.name, {
-        fontFamily: '"PingFang SC", sans-serif',
+        fontFamily: UI_FONT,
         fontSize: '11px',
-        color: '#d0c8ae',
-        backgroundColor: 'rgba(17,25,26,0.76)',
+        color: cssColor('paper'),
+        backgroundColor: cssRgba('bg0', 0.76),
         padding: { x: 4, y: 2 },
       })
       .setOrigin(0.5, 0);
@@ -72,10 +83,10 @@ export class Interactable extends Phaser.GameObjects.Container {
     if (!this.hintLabel) {
       this.hintLabel = this.scene.add
         .text(this.x, this.y - TILE * 0.8, 'E', {
-          fontFamily: '"SFMono-Regular", monospace',
+          fontFamily: MONO_FONT,
           fontSize: '13px',
-          color: '#f2e6c3',
-          backgroundColor: 'rgba(20,28,28,0.8)',
+          color: cssColor('paper'),
+          backgroundColor: cssRgba('bg0', 0.8),
           padding: { x: 3, y: 1 },
         })
         .setOrigin(0.5, 0.5)
@@ -111,7 +122,7 @@ export class Interactable extends Phaser.GameObjects.Container {
     // 收集实物入背包
     if (this.def.collect) {
       useGameStore.getState().addToInventory(this.def.collect.id, this.def.collect.count ?? 1);
-      useGameStore.getState().showToast(`获得了物品：${this.def.collect.id}`);
+      useGameStore.getState().showToast(`获得了物品：${itemName(this.def.collect.id)}`);
     }
 
     // 调查文本 / NPC 对话

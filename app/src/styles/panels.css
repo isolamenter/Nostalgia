@@ -497,23 +497,23 @@
 }
 
 .s-pending {
-  color: #6e6a5d;
+  color: var(--stamp-pending);
 }
 
 .s-verified {
-  color: #527477;
+  color: var(--stamp-verified);
 }
 
 .s-retained {
-  color: #49695e;
+  color: var(--stamp-retained);
 }
 
 .s-held {
-  color: #786633;
+  color: var(--stamp-held);
 }
 
 .s-discarded {
-  color: #87473f;
+  color: var(--stamp-discarded);
 }
 
 .card-detail {
@@ -705,7 +705,7 @@
 }
 
 .danger-action {
-  color: #b7766d;
+  color: color-mix(in srgb, var(--danger) 74%, var(--paper));
 }
 
 .save-hint {
@@ -1010,6 +1010,12 @@
 .settlement-actions button {
   padding: 7px 14px;
   font-size: 11px;
+}
+
+.settlement-actions button.primary {
+  border-color: var(--accent);
+  background: rgba(102, 135, 136, 0.2);
+  color: var(--paper-bright);
 }
 
 .settlement-foot {

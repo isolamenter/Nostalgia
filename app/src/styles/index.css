@@ -19,6 +19,13 @@
   --keep: #9aafa6;
   --hold: #b7a36b;
   --shadow: rgba(4, 8, 9, 0.62);
+
+  /* 档案登记章色：全部由上方 token 派生，禁止散落新主题色（规范 §7.4 / §12） */
+  --stamp-pending: color-mix(in srgb, var(--paper-dim) 58%, var(--paper-ink)); /* 铅笔灰 · 待核 */
+  --stamp-verified: var(--accent); /* 复写青 · 已核对 */
+  --stamp-retained: var(--keep); /* 冷绿 · 保留 */
+  --stamp-held: var(--hold); /* 暗黄 · 悬置 */
+  --stamp-discarded: var(--danger); /* 氧化印泥红 · 移出 */
   --font-display: 'Songti SC', STSong, 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
   --font-ui: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
   --font-mono: 'SFMono-Regular', 'Cascadia Mono', 'Roboto Mono', ui-monospace, monospace;

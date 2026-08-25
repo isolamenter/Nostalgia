@@ -17,6 +17,7 @@ export class Player {
     this.sprite = scene.physics.add.sprite(worldX, worldY, 'placeholder-player')
     this.sprite.setCollideWorldBounds(true)
     this.sprite.setDepth(10)
+    ;(this.sprite.body as Phaser.Physics.Arcade.Body).debugShowBody = false
 
     const kb = scene.input.keyboard
     this.keys = kb

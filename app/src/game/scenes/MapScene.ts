@@ -3,14 +3,56 @@ import type { LocationDef } from '../../data/types';
 import { bfs, type Point } from '../../engine/pathfinding/grid';
 import { bus } from '../../bridge/bus';
 import { useGameStore, DEFAULT_START_MAP } from '../../state/store';
-import { GAME_HEIGHT, GAME_WIDTH, TILE, rgb } from '../constants';
+import {
+  GAME_HEIGHT,
+  GAME_WIDTH,
+  TILE,
+  rgb,
+  rgbToken,
+  cssColor,
+  cssRgba,
+  UI_FONT,
+} from '../constants';
 import { drawDecor } from '../objects/Decor';
+import { drawFurniture } from '../objects/furniture';
 import { Player } from '../objects/Player';
 import { Interactable } from '../objects/Interactable';
 
 interface SceneData {
   mapId?: string;
   spawn?: { x: number; y: number };
+}
+
+/** 沿矩形周界画虚线（Phaser Graphics 无原生虚线，用短线近似） */
+function strokeDashedRect(
+  g: Phaser.GameObjects.Graphics,
+  cx: number,
+  cy: number,
+  w: number,
+  h: number,
+  dash: number,
+  gap: number,
+): void {
+  const hw = w / 2;
+  const hh = h / 2;
+  const edges: Array<[number, number, number, number]> = [
+    [cx - hw, cy - hh, cx + hw, cy - hh],
+    [cx + hw, cy - hh, cx + hw, cy + hh],
+    [cx + hw, cy + hh, cx - hw, cy + hh],
+    [cx - hw, cy + hh, cx - hw, cy - hh],
+  ];
+  for (const [x1, y1, x2, y2] of edges) {
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    if (!len) continue;
+    const ux = (x2 - x1) / len;
+    const uy = (y2 - y1) / len;
+    let t = 0;
+    while (t < len) {
+      const end = Math.min(t + dash, len);
+      g.lineBetween(x1 + ux * t, y1 + uy * t, x1 + ux * end, y1 + uy * end);
+      t = end + gap;
+    }
+  }
 }
 
 /**
@@ -45,7 +87,7 @@ export class MapScene extends Phaser.Scene {
     const loc = st.data.maps.get(this.mapId);
     if (!loc) {
       console.error(`[MapScene] 找不到地图 "${this.mapId}"`);
-      this.add.text(20, 20, `地图数据缺失：${this.mapId}`, { color: '#ff7777' });
+      this.add.text(20, 20, `地图数据缺失：${this.mapId}`, { color: cssColor('danger') });
       return;
     }
     this.loc = loc;
@@ -57,45 +99,36 @@ export class MapScene extends Phaser.Scene {
     this.cameras.main.setBounds(0, 0, mapW, mapH);
     this.cameras.main.setBackgroundColor(rgb(loc.bg.color));
 
-    // 地面底色 + 档案网格 + 四角暗晕
+    // 地面底色 + 极弱档案网格 + 四角暗晕（潮湿蓝黑，全部派生自色彩 token）
     this.add.rectangle(mapW / 2, mapH / 2, mapW, mapH, rgb(loc.bg.color)).setDepth(-11);
-    const accent = rgb(loc.bg.accent);
     const floorGrid = this.add.graphics().setDepth(-9);
-    floorGrid.lineStyle(1, rgb('#8fafb0'), 0.055);
+    floorGrid.lineStyle(1, rgbToken('accent'), 0.05);
     for (let x = 0; x <= mapW; x += TILE) floorGrid.lineBetween(x, 0, x, mapH);
     for (let y = 0; y <= mapH; y += TILE) floorGrid.lineBetween(0, y, mapW, y);
     const vignette = (x: number, y: number, w: number, h: number, a: number) =>
       this.add
-        .rectangle(x, y, mapW * w, mapH * h, accent)
+        .rectangle(x, y, mapW * w, mapH * h, rgbToken('bg0'))
         .setAlpha(a)
         .setDepth(-10);
-    vignette(0, 0, 0.4, 0.4, 0.16);
-    vignette(mapW, 0, 0.4, 0.4, 0.16);
-    vignette(0, mapH, 0.4, 0.4, 0.16);
-    vignette(mapW, mapH, 0.4, 0.4, 0.16);
+    vignette(0, 0, 0.4, 0.4, 0.22);
+    vignette(mapW, 0, 0.4, 0.4, 0.22);
+    vignette(0, mapH, 0.4, 0.4, 0.22);
+    vignette(mapW, mapH, 0.4, 0.4, 0.22);
 
     drawDecor(this, loc);
 
-    // 实心碰撞：数据栅格 → 静态矩形
+    // 实心碰撞：数据栅格 → 不可见静态物理体（尺寸/中心不变，视觉由 drawFurniture 单独绘制）
     for (const [gx, gy] of loc.solidTiles) {
-      this.add
-        .rectangle(
-          (gx + 0.5) * TILE + 3,
-          (gy + 0.5) * TILE + 4,
-          TILE * 0.88,
-          TILE * 0.88,
-          rgb('#080d0e'),
-          0.32,
-        )
-        .setDepth(0.8);
       const r = this.add
-        .rectangle((gx + 0.5) * TILE, (gy + 0.5) * TILE, TILE * 0.88, TILE * 0.88, accent)
-        .setOrigin(0.5)
-        .setStrokeStyle(1, rgb('#8fafb0'), 0.12)
-        .setDepth(1);
+        .rectangle((gx + 0.5) * TILE, (gy + 0.5) * TILE, TILE * 0.88, TILE * 0.88)
+        .setOrigin(0.5);
       this.physics.add.existing(r, true);
+      // 不把碰撞格画成亮色调试方块（保留远处 velocity 等其他 debug）
+      (r.body as Phaser.Physics.Arcade.StaticBody).debugShowBody = false;
       this.solidBodies.push(r);
     }
+    // 家具/实心块视觉层：实体色 + 弱描边 + 短落地阴影
+    drawFurniture(this, loc);
 
     // 玩家（出生点：读档/切图 data.spawn 优先，否则用地图 spawn）
     const spawn = data.spawn ?? loc.spawn;
@@ -118,18 +151,17 @@ export class MapScene extends Phaser.Scene {
       const cy = (exit.y + exit.h / 2) * TILE;
       const w = exit.w * TILE;
       const h = exit.h * TILE;
-      this.add.rectangle(cx, cy, w, h, rgb('#8fafb0'), 0.08).setDepth(2);
-      this.add
-        .rectangle(cx, cy, w, h, rgb('#8fafb0'), 0)
-        .setStrokeStyle(1.5, rgb('#8fafb0'), 0.62)
-        .setDepth(2.1);
+      this.add.rectangle(cx, cy, w, h, rgbToken('accent'), 0.05).setDepth(2);
+      const boundary = this.add.graphics().setDepth(2.1);
+      boundary.lineStyle(1.5, rgbToken('accentDim'), 0.4);
+      strokeDashedRect(boundary, cx, cy, w, h, 6, 4);
       const shortTarget = target?.name.split('·')[0]?.trim() ?? '出口';
       this.add
         .text(cx, cy, `${shortTarget} →`, {
-          fontFamily: '"PingFang SC", sans-serif',
+          fontFamily: UI_FONT,
           fontSize: '13px',
-          color: '#d0c8ae',
-          backgroundColor: 'rgba(17,25,26,0.82)',
+          color: cssColor('paper'),
+          backgroundColor: cssRgba('bg0', 0.8),
           padding: { x: 7, y: 3 },
         })
         .setOrigin(0.5)
@@ -247,7 +279,7 @@ export class MapScene extends Phaser.Scene {
     bus.emit('scene:change', { from, to });
     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
       const target = useGameStore.getState().data.maps.get(to);
-      const spawn = target?.spawn ?? { x: 6, y: 12 };
+      const spawn = target?.spawn ?? { x: 8, y: 13 };
       this.scene.restart({ mapId: to, spawn: { x: spawn.x, y: spawn.y } });
     });
     this.cameras.main.fadeOut(180, 16, 22, 22);

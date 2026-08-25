@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { GAME_HEIGHT, GAME_WIDTH } from './constants';
+import { GAME_HEIGHT, GAME_WIDTH, TOKENS } from './constants';
 import { BootstrapScene } from './scenes/BootstrapScene';
 import { MapScene } from './scenes/MapScene';
 
@@ -9,7 +9,7 @@ export function buildConfig(parent: HTMLElement): Phaser.Types.Core.GameConfig {
     parent,
     width: GAME_WIDTH,
     height: GAME_HEIGHT,
-    backgroundColor: '#11191a',
+    backgroundColor: TOKENS.bg0,
     physics: {
       default: 'arcade',
       arcade: {

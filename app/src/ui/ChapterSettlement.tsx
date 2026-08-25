@@ -112,7 +112,7 @@ export function ChapterSettlement() {
         <div className="settlement-actions">
           <button onClick={() => saveToManual('save')}>保存进度</button>
           <button
-            className="title-btn primary"
+            className="primary"
             onClick={() => useGameStore.setState({ screen: 'title' })}
           >
             回到标题

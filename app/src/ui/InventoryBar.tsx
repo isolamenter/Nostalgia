@@ -1,18 +1,5 @@
 import { useGameStore } from '../state/store';
-
-/** 物件显示名：优先取内容侧展示名，兜底去掉前缀（demo./chN. 等）后的 .item. 段 */
-const ITEM_LABEL: Record<string, string> = {
-  'ch1.item.prescription': '药方小票',
-  'ch1.item.crackedBowl': '裂纹瓷碗',
-  'ch1.item.photocopy': '复印页',
-  'ch1.item.mothersMedicine': '母亲的药',
-};
-function itemName(id: string): string {
-  if (ITEM_LABEL[id]) return ITEM_LABEL[id];
-  const marker = '.item.';
-  const idx = id.indexOf(marker);
-  return idx >= 0 ? id.slice(idx + marker.length) : id;
-}
+import { itemName } from '../data/items/names';
 
 /** 物件栏：收集到的实物（统一收据等）；点击展开面板 */
 export function InventoryBar() {

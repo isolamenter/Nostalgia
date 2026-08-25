@@ -37,7 +37,7 @@ import {
 import { bus } from '../bridge/bus';
 
 export const DEFAULT_START_MAP = 'ch1.maps.home';
-export const DEFAULT_START_POS = { x: 6, y: 12 };
+export const DEFAULT_START_POS = { x: 8, y: 13 };
 
 // conv.pending 形态
 type ConvPending = { type: 'node'; id: string } | { type: 'end' };
