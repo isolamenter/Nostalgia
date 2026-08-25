@@ -1,0 +1,255 @@
+{
+  "chapterId": "ch2",
+  "title": "照旧",
+  "startMap": "ch2.maps.shop",
+  "intro": { "flag": "ch2.intro.done", "node": "ch2.intro.1" },
+  "next": "ch3",
+  "settlement": {
+    "docket": "青潭县档案馆 / 章节归档",
+    "number": "QT-02-002",
+    "kicker": "第二章终局 · 一页档案落定",
+    "theme": "维护无法证明存在的人。",
+    "triggerFlag": "ch2.chapter.end",
+    "endingFlag": "ch2.ending",
+    "defaultEnding": "held",
+    "endings": {
+      "retained": {
+        "title": "位置留着",
+        "lines": [
+          "青梧街的鞋，还在柜台最外侧的格子。纸条压在玻璃下：后跟照旧。周五来取。",
+          "工具袋挂回墙上的钉子，铁皮箱贴着墙。『共同经营人』那一栏，没有划掉。",
+          "没有人来认领，也没有人来说什么时候移走。",
+          "你替一个无法证明存在的人，留了一个位置。"
+        ]
+      },
+      "held": {
+        "title": "悬着待核",
+        "lines": [
+          "黑皮鞋还在原地。身份，还没有核完。",
+          "『无主遗物』『协查』『待核』——这些字都空悬着，谁也没有填。",
+          "位置空着，也是一种记法。",
+          "下一次翻开，由你自己决定。"
+        ]
+      },
+      "discarded": {
+        "title": "收拾干净",
+        "lines": [
+          "鞋被送走了。纸条折好，放回鞋里——没有人来取。",
+          "工具袋和铁皮箱，等移交的人来清点。",
+          "『共同经营人』那一栏，有一天会划掉。",
+          "这份记录，你把它收进了抽屉最底。"
+        ]
+      }
+    },
+    "foot": "这份关于『周少白』的记录，暂时安静下来。"
+  },
+  "nodes": [
+    {
+      "id": "ch2.intro.1",
+      "mode": "prose",
+      "text": "你到青梧街的时候，许记修鞋铺刚开门。\n\n卷帘门升到一半，许观弯腰进去，把门边的木楔踢出来，再从里面托住门。右边门轴缺一颗螺丝，升得太快会卡——他的手在某一格停了一下，门才慢慢上去。\n\n门口墙根下，放着一双黑皮鞋。鞋尖朝街，左右并排。鞋面有一层薄灰，右脚后跟向外翻开，里面的纸板已经发黄。鞋带系得整齐。",
+      "next": "ch2.intro.2"
+    },
+    {
+      "id": "ch2.intro.2",
+      "mode": "prose",
+      "text": "左鞋里塞着一张折过两次的纸。\n\n后跟照旧。周五来取。\n\n没有姓名，也没有电话。\n\n许观顺着你的目光看过去，把纸往鞋里推了推。「这家铺子，替人放东西，放了十几年了。」",
+      "next": "ch2.intro.3"
+    },
+    {
+      "id": "ch2.intro.3",
+      "mode": "prose",
+      "text": "他回到矮凳上拆鞋跟。旧钉锈得很深，拔了四次才出来。\n\n你可以先四处看看：柜台上的账本、墙角的工具袋、墙上那张旧执照。对面是秋记馄饨铺，隔壁是理发店。",
+      "flags": [{ "flag": "ch2.intro.seen", "value": true }],
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.shoes.1",
+      "mode": "prose",
+      "text": "你把那双黑皮鞋拿起来。\n\n鞋码四十一。左鞋前掌磨得厉害，右后跟向外偏磨。鞋底缝里嵌着一点红色粉末，你用指甲挑到灯下看——像砖屑。\n\n纸条压在鞋面上：后跟照旧。周五来取。\n\n你把鞋翻过来，鞋垫上一块白色的磨痕，像半个字。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.ledger.1",
+      "mode": "prose",
+      "text": "柜台上的账本摊开着。许观修鞋，记得很简单。\n\n有一行：\n\n黑皮鞋，右跟，二十五元。\n客户姓名空白。\n\n再往前翻一页，都是些鞋码、价钱和日期。只有这一行，客户那一栏一直空着。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.toolbag.1",
+      "mode": "prose",
+      "text": "墙角挂着一只帆布工具袋，拉链坏了一半，袋角起了一层霉斑。\n\n里面有两把螺丝刀、一只活口扳手、一卷电工胶布和几颗大小不一的螺母。没有姓名。\n\n袋底有一张被油浸透的纸，只剩一个模糊的「周」字。\n\n袋把上系着一张白签：旧戏院清杂 17。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.registration.1",
+      "mode": "prose",
+      "text": "墙上那张旧执照，边角卷起。扫描件上的字有些糊。\n\n经营人：许观。\n共同经营人：周少白。\n\n下面有两个签名。第一个是许观的，笔画很硬；另一个写得很松，最后一笔拖得很长。\n\n边缘有装订孔的黑影——这是旧档案翻拍下来的。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.tinbox.1",
+      "mode": "prose",
+      "text": "旧戏院后仓，清运车已经装了一半。墙角一只灰色铁皮箱，箱盖新贴着一张标签：周少白，待核。\n\n里面是旧手套、扁锉、搪瓷杯和几张粘住的收据。没有一样能证明是谁的。\n\n旁边一张登记表，写着：周少白物品，暂存。联系人是许记修鞋铺。\n\n「无法确认。」——负责清点的人在表上签了字。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.debris.1",
+      "mode": "prose",
+      "text": "仓库门边堆着两只贴白签的纸箱，隔壁五金店门边靠着一把折椅。\n\n清运的人把墙面、旧管线和地板都扒了一遍。这些都是清出来的，还没有人认领。\n\n你要找的东西，大概跟这些纸箱一起，被搬到了别处。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.qiu.1",
+      "mode": "dialogue",
+      "speaker": "ch2.char.qiuxiuying",
+      "text": "秋秀英端着一只裂口的白瓷碗进来，看见你。「你是为那双鞋来的？」\n\n「姓周的吧。」\n\n她自己也没说出是谁。",
+      "choices": [
+        { "id": "q.who", "text": "哪个周？", "next": "ch2.s.qiu.2" },
+        { "id": "q.time", "text": "这双鞋放多久了？", "next": "ch2.s.qiu.3" }
+      ]
+    },
+    {
+      "id": "ch2.s.qiu.2",
+      "mode": "dialogue",
+      "speaker": "ch2.char.qiuxiuying",
+      "text": "秋秀英想了一会儿。「以前那一个。」\n\n她把碗放到水流下面，没再说下去。\n\n扳手是从许观那里借的，下午才还。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.qiu.3",
+      "mode": "dialogue",
+      "speaker": "ch2.char.qiuxiuying",
+      "text": "「快一个月了。」她说，「纸条上写周五来取——周五没人来。第二天也没有。」\n\n她择葱的手没停。「有人说该收保管费，有人说老街哪有这规矩，还有人说是老人忘事。」\n\n「反正，有人会来。」",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.shen.1",
+      "mode": "dialogue",
+      "speaker": "ch2.char.shen",
+      "text": "理发店的沈师傅把转灯搬到墙边，往柜台下看了一眼。「那双周先生的，还没来？」\n\n「谁说姓周？」\n「秋姐说的。」\n「她也不知道。」",
+      "next": "ch2.s.shen.2"
+    },
+    {
+      "id": "ch2.s.shen.2",
+      "mode": "dialogue",
+      "speaker": "ch2.char.shen",
+      "text": "沈师傅把鞋翻过去看了看。「砖厂的泥。」\n\n「现在谁还往那边走。」\n\n他说的是旧戏院后头那片。许观没有接话，照着他原来的胶痕切了两层皮。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.s.xuqiu.before",
+      "mode": "prose",
+      "text": "许观坐在矮凳上削鞋底，头没抬。\n\n「修鞋在前面。你要问的是那双鞋——它还没人来取。」\n\n他手里的刀停都没停。你看见柜台下的黑皮鞋，还放在最外侧的格子。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.event.assess.1",
+      "mode": "prose",
+      "text": "许观放下锥子，看了看你，又看了看柜台下的黑皮鞋。\n\n「鞋、账本、工具袋，你都看了；旧戏院后仓的箱子，你也去看了。」\n\n他把那本账本翻到某一页，推过来。",
+      "next": "ch2.event.assess.2"
+    },
+    {
+      "id": "ch2.event.assess.2",
+      "mode": "prose",
+      "text": "账本上写：黑皮鞋，右跟，二十五元。客户姓名空白。\n\n「姓名空着，就没人能证明是谁的。」许观说，「可这东西，在店里摆了一个月。」\n\n他把压在玻璃下面的纸条抽出来：后跟照旧。周五来取。",
+      "next": "ch2.event.assess.3"
+    },
+    {
+      "id": "ch2.event.assess.3",
+      "mode": "prose",
+      "text": "「姓周。」许观说，「周少白。」\n\n三个字说出口以后，店里安静了一下。\n\n「你认识？」「不认识。」\n「那怎么知道？」\n\n他停了停。「鞋垫上有一块白磨痕，像个『白』字。随口说的。」",
+      "next": "ch2.event.assess.4"
+    },
+    {
+      "id": "ch2.event.assess.4",
+      "mode": "prose",
+      "text": "你把几样东西在台面上排开。\n\n门口的黑皮鞋。旧戏院清出的工具袋。后仓的铁皮箱。墙上那张执照——经营人许观，共同经营人周少白。\n\n登记里说，他曾在南岭第二砖厂工作，是这家铺子的共同经营人。\n\n它们都指向同一个人：一个已经死了、却没人能证明曾经存在过的人。\n\n共同经营人那一栏的两个签名，一个是许观的，另一个写得很松，最后一笔拖得很长。",
+      "next": "ch2.event.assess.quiet"
+    },
+    {
+      "id": "ch2.event.assess.quiet",
+      "mode": "prose",
+      "text": "许观把围裙上的灰拍掉。\n\n「东西移走，登记就能改。可没有人来说，什么时候移走。」\n\n他一直在做的，是替一个可能不存在的人，维护一个位置。\n\n你看着台面上这些东西，该做一个判断了。",
+      "next": "ch2.event.assess.adjudicate"
+    },
+    {
+      "id": "ch2.event.assess.adjudicate",
+      "mode": "prose",
+      "text": "这一份关于「周少白」的记录，摊在面前。\n\n你不知道他是不是真的存在过。但这些东西，确确实实占着一个位置。\n\n你决定：",
+      "choices": [
+        {
+          "id": "choose.retained",
+          "text": "留下这个位置——替不能证明存在的人，记上一笔",
+          "flags": [
+            { "flag": "archive.ch2.archive.blackshoes.status", "value": "retained" },
+            { "flag": "archive.ch2.archive.toolbag.status", "value": "retained" },
+            { "flag": "archive.ch2.archive.ledger.status", "value": "retained" },
+            { "flag": "archive.ch2.archive.registration.status", "value": "retained" },
+            { "flag": "archive.ch2.archive.relik.status", "value": "retained" },
+            { "flag": "ch2.ending", "value": "retained" },
+            { "flag": "ch2.chapter.end", "value": true }
+          ],
+          "next": "ch2.event.assess.resolution"
+        },
+        {
+          "id": "choose.held",
+          "text": "先悬着，不急着定——等身份核完再说",
+          "flags": [
+            { "flag": "archive.ch2.archive.blackshoes.status", "value": "held" },
+            { "flag": "archive.ch2.archive.toolbag.status", "value": "held" },
+            { "flag": "archive.ch2.archive.ledger.status", "value": "held" },
+            { "flag": "archive.ch2.archive.registration.status", "value": "held" },
+            { "flag": "archive.ch2.archive.relik.status", "value": "held" },
+            { "flag": "ch2.ending", "value": "held" },
+            { "flag": "ch2.chapter.end", "value": true }
+          ],
+          "next": "ch2.event.assess.resolution"
+        },
+        {
+          "id": "choose.discarded",
+          "text": "收拾干净——把这份记录移出去",
+          "flags": [
+            { "flag": "archive.ch2.archive.blackshoes.status", "value": "discarded" },
+            { "flag": "archive.ch2.archive.toolbag.status", "value": "discarded" },
+            { "flag": "archive.ch2.archive.ledger.status", "value": "discarded" },
+            { "flag": "archive.ch2.archive.registration.status", "value": "discarded" },
+            { "flag": "archive.ch2.archive.relik.status", "value": "discarded" },
+            { "flag": "ch2.ending", "value": "discarded" },
+            { "flag": "ch2.chapter.end", "value": true }
+          ],
+          "next": "ch2.event.assess.resolution"
+        }
+      ]
+    },
+    {
+      "id": "ch2.event.assess.resolution",
+      "mode": "prose",
+      "text": "你合上账本。",
+      "next": [
+        { "when": { "hasFlag": "ch2.ending", "equals": "retained" }, "to": "ch2.event.assess.epilogue.retained" },
+        { "when": { "hasFlag": "ch2.ending", "equals": "held" }, "to": "ch2.event.assess.epilogue.held" },
+        { "when": { "hasFlag": "ch2.ending", "equals": "discarded" }, "to": "ch2.event.assess.epilogue.discarded" },
+        { "to": "ch2.event.assess.epilogue.held" }
+      ]
+    },
+    {
+      "id": "ch2.event.assess.epilogue.retained",
+      "mode": "prose",
+      "text": "「那就先放着。」许观把黑皮鞋放回最外侧的格子。\n\n工具袋挂回墙上那颗钉子，铁皮箱推到柜台后面。\n\n那个「周少白」，在登记里有了一个位置。\n\n鞋尖朝街，等一个没有人说的『周五』。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.event.assess.epilogue.held",
+      "mode": "prose",
+      "text": "你没有定。\n\n黑皮鞋留在原地，纸条压在玻璃下面。\n\n「无主」「待核」「协查」——这些字都还悬着。\n\n位置空着，也是一种记法。",
+      "next": "$END"
+    },
+    {
+      "id": "ch2.event.assess.epilogue.discarded",
+      "mode": "prose",
+      "text": "「收拾干净吧。」\n\n许观把那张纸条从玻璃下抽出来，折好，放回鞋里。\n\n鞋被送走。工具袋和铁皮箱，等移交的人来。\n\n共同经营人那一栏，有一天会划掉。",
+      "next": "$END"
+    }
+  ]
+}

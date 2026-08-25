@@ -4,7 +4,7 @@
 
 Web 端 2D 叙事探索游戏。玩家在安置区、档案室、菜市场等「现实空间」里探索与调查，通过档案抽屉等「记录空间」整理、核对、保留或移出各类记录——记录如何被保存、被修改，会反过来改变这个世界的解释。
 
-当前仓库处于 **核心系统框架（Epic 0 + Epic 1）** 阶段：七大核心系统齐备，内容为占位示例，供后续按 `app/CONTENT_GUIDE.md` 填充真实章节。
+当前进度：**核心系统框架（Epic 0 + Epic 1）已交付**；**第一章《第二份》Vertical Slice（Epic 2）已完成** —— 一张可独立体验 30–60 分钟的完整章节（安置区住宅、档案室、菜市场、厨房四张地图，含调查 → 核对 → 裁决分支与 3 种结局）；**Epic 3 内容扩展（#016-019）已交付** —— 《照旧》（修鞋）、《临时停靠》（公交）、《水没有来》（档案审核）、《终章归档》四章全流程打通，章节间状态继承（档案/flag 跨章累加），构成一条完整的《第二份 → 照旧 → 临时停靠 → 水没有来 → 终章归档》章节链。内容数据化在 `app/src/data/story/`，新增章节按 `app/CONTENT_GUIDE.md` 编写。
 
 ## 技术栈
 
@@ -41,13 +41,14 @@ npm run ci           # 一键：typecheck + lint + test + check:data + build
 | `format` / `format:check` | Prettier |
 | `test` / `test:watch` | Vitest |
 | `check:data` | 磁盘全量剧情数据 zod 校验 |
+| `merge:drafts` | 多章节并行产出 `_drafts/*.json` 合并进共享库（去重 + zod 校验） |
 | `ci` | 上述全部串联 |
 
 ## 目录速览
 
 ```
 Nostalgia/
-├── docs/                      # 6 份设计文档（技术方案 / GDD / JSON规范 / 第一章规格 / Backlog / 主稿）
+├── docs/                      # 8 份设计文档（技术方案 / GDD / JSON规范 / 第一章规格 / Backlog / 主稿 / 地图规范 / 视觉规范）
 ├── .github/workflows/ci.yml   # CI
 └── app/
     ├── src/data/              # ★ 内容数据（story/characters/items/maps/archives 五目录 JSON）
@@ -80,6 +81,6 @@ cd app && npm run check:data   # 校验所有 JSON 是否合法
 |---|---|---|
 | Epic 0 项目初始化（#001-003） | ✅ | 已交付 |
 | Epic 1 核心系统（#004-010） | ✅ | 已交付（移动/场景/对话/分支/物件调查/档案收集/存档） |
-| Epic 2 第一章 Vertical Slice（#011-015） | 待内容填充 | 按 CONTENT_GUIDE 制作《第二份》 |
-| Epic 3 内容扩展（#016-019） | 待后续 | 修鞋 / 公交 / 档案审核 / 终章归档 |
+| Epic 2 第一章 Vertical Slice（#011-015） | ✅ | 已交付（《第二份》四地图全流程 / 3 结局） |
+| Epic 3 内容扩展（#016-019） | ✅ | 已交付（《照旧》修鞋 / 《临时停靠》公交 / 《水没有来》档案审核 / 《终章归档》+ 章节链状态继承） |
 | Epic 4 发布（#020-022） | 待后续 | 部署 / 性能 / 测试打包 |

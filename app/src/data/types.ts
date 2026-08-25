@@ -80,6 +80,32 @@ export interface StoryNode {
   note?: string
 }
 
+/**
+ * 章节结算定义（框架扩展）：一章终局的浮层内容。
+ * 替代早期在前端组件里写死的第一章结算；后续章节各自携带自己的结算定义，
+ * 使标题/主题/归档号/三结局行文全部数据化。
+ */
+export interface ChapterSettlementDef {
+  /** 归档抬头（如「青潭县档案馆 / 章节归档」） */
+  docket?: string
+  /** 归档编号（如「QT-01-002」） */
+  number?: string
+  /** 前置小字（如「第一章终局 · 一页档案落定」） */
+  kicker?: string
+  /** 章主题句（如「不在场的人，是否仍算家庭成员？」） */
+  theme?: string
+  /** 触发结算的 flag（玩家在终局选择中写入，如 ch1.chapter.end） */
+  triggerFlag: string
+  /** 记录结局变体（retained/held/discarded）的 flag 名（如 ch1.ending） */
+  endingFlag: string
+  /** 读不到 endingFlag 时兜底的结局变体（缺省 held，对齐第一版行为） */
+  defaultEnding?: string
+  /** 各结局行文：变体 key → 标题 + 行 */
+  endings: Record<string, { title: string; lines: string[] }>
+  /** 底部小字 */
+  foot?: string
+}
+
 /** 章节数据（/story/chapterNN.json） */
 export interface ChapterData {
   chapterId: string
@@ -89,6 +115,10 @@ export interface ChapterData {
   startMap?: string
   /** 框架扩展：首次进入本章起始地图自动展开的开场散文（node 为该章节点 id） */
   intro?: { flag: string; node: string }
+  /** 框架扩展：章节链中的下一章 chapterId（无 = 终章/无后继） */
+  next?: string
+  /** 框架扩展：本章结算定义（终局浮层，替代前端硬编码） */
+  settlement?: ChapterSettlementDef
 }
 
 /** 档案媒介类型 */

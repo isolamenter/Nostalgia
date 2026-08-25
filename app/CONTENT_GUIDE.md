@@ -65,9 +65,19 @@
 
 1. 复制 `src/data/story/chapter01.json` → `chapter02.json`，改 `chapterId` 与 `title`，并补 `startMap`：**本章起点地图 id**（新游戏出生点，`MapScene`/`newGame` 优先读取）。
 2. 可加 `intro`：`{ "flag": "<一次性flag>", "node": "<章节内开场节点id>" }` —— 首次进入 `startMap` 时自动展开该散文节点（数据驱动开场，替代框架里的硬编码钩子）。
-3. 重写 `nodes` 数组；链式推进记得用 `next`，收尾指针 `next: "$END"`。
+3. 重写 `nodes` 数组；节点链式推进的 `next` 只指向**本章内节点 id** 或 `$END`。节点图的 next 与章节链的 next（第 6 条）是两回事，不要混用。
 4. 其余章节可被 `loaders` 自动收集（`import.meta.glob` 扫描 `story/*.json`），无需注册。
-5. 让物件/NPC 的 `inspect` / `dialogue` 指向新的入口节点 id；跨章节跳转不支持（节点图按章独立）。
+5. 让物件/NPC 的 `inspect` / `dialogue` 指向新的入口节点 id；节点图按章独立，跨章不走节点跳转。
+6. **章节链（框架扩展）**：`next` 填下一章 `chapterId`，把多章串成链条。终局结算浮层据此提供「下一章」按钮——`advanceToChapter` 会**保留 world 状态（档案/flag/选择随周目累加，即「状态继承」）、只重置会话相位**，进入下一章 `startMap`。章节链入口 = 不被任何章节 `next` 引用的那个章节（头章），`newGame` 自动推导，无需硬编码。
+7. **结算定义（框架扩展）**：`settlement` 数据化终局浮层，字段如下。章节未设 `settlement` 则无结算浮层。
+
+   | 字段 | 说明 |
+   |---|---|
+   | `triggerFlag` | **必填**。终局选择里写入的 flag；为 true 时弹出结算（如 `ch1.chapter.end`） |
+   | `endingFlag` | **必填**。记录结局变体（retained/held/discarded）的 flag（如 `ch1.ending`） |
+   | `endings` | **必填**。各结局变体 → `{ title, lines[] }`（三结局行文不同） |
+   | `defaultEnding` | 可选。读不到 `endingFlag` 时兜底变体（缺省 `held`） |
+   | `docket` / `number` / `kicker` / `theme` / `foot` | 可选。结语抬头、归档编号、前置小字、主题句、底部小字 |
 
 ## 4. 新增角色
 

@@ -26,5 +26,117 @@
     "role": "第一章 · 隔壁邻居",
     "color": "#b0acb8",
     "shortBio": "让母亲替她买菜带药的老邻居。"
+  },
+  {
+    "id": "ch2.char.xuqiu",
+    "name": "许观",
+    "role": "第二章 · 青梧街许记修鞋铺 · 修鞋匠",
+    "color": "#b0ac98",
+    "shortBio": "记鞋比记脸还清楚。替人放东西，一放十几年。"
+  },
+  {
+    "id": "ch2.char.qiuxiuying",
+    "name": "秋秀英",
+    "role": "第二章 · 青梧街秋记馄饨铺",
+    "color": "#b7a36b",
+    "shortBio": "最先问这双鞋是谁的，可她自己也没说出是谁。"
+  },
+  {
+    "id": "ch2.char.shen",
+    "name": "沈师傅",
+    "role": "第二章 · 青梧街理发店",
+    "color": "#9aaea6",
+    "shortBio": "认得砖厂的人。只看一眼鞋底，说是砖厂的泥。"
+  },
+  {
+    "id": "ch3.char.zhao",
+    "name": "赵洪生",
+    "role": "第三章 · 南岭县城—白沙镇班线司机",
+    "color": "#b8b3a8",
+    "shortBio": "开一条线十二年。父亲最后几次，都在这段弯道前站起来。"
+  },
+  {
+    "id": "ch3.char.taopo",
+    "name": "陶婆",
+    "role": "第三章 · 灰布衫老太太（石桥人）",
+    "color": "#aab3b0",
+    "shortBio": "每次下车都要纠正一次方向。岔河口不在那边。"
+  },
+  {
+    "id": "ch3.char.woolHat",
+    "name": "戴毛线帽老人",
+    "role": "第三章 · 临时停靠点的乘客",
+    "color": "#8f8e91",
+    "shortBio": "扶着椅背站起来又停住。二十秒到了，他没下。"
+  },
+  {
+    "id": "ch3.char.dispatch",
+    "name": "调度员·安",
+    "role": "第三章 · 场站调度员",
+    "color": "#a8b0bd",
+    "shortBio": "临时停靠不能一直临时。要么成为站，要么整改。"
+  },
+  {
+    "id": "ch4.char.guning",
+    "name": "顾宁",
+    "role": "第四章主角 · 处置工作组登记组",
+    "color": "#d0c8ae",
+    "shortBio": "出生在县体育馆临时安置点，没住过旧城，却替旧城的几万口人登记。"
+  },
+  {
+    "id": "ch4.char.mother",
+    "name": "母亲",
+    "role": "顾宁母亲 · 原户籍居民",
+    "color": "#c2b8a6",
+    "shortBio": "「人出来了就行。」出门的鞋，鞋尖总朝外。"
+  },
+  {
+    "id": "ch4.char.jiang",
+    "name": "蒋科长",
+    "role": "工作组登记组科长",
+    "color": "#a8b3bf",
+    "shortBio": "用笔在名单上勾一下：熟悉情况。"
+  },
+  {
+    "id": "ch4.char.zhangxiuying",
+    "name": "张秀英",
+    "role": "退休教师",
+    "color": "#b3a9a6",
+    "shortBio": "只求开放日进旧县二小取一摞作文。「坏了也拿。」"
+  },
+  {
+    "id": "ch4.char.humin",
+    "name": "胡敏",
+    "role": "登记组同事",
+    "color": "#8fafb0",
+    "shortBio": "总问「按哪个」。「现在没规则。」"
+  },
+  {
+    "id": "ch4.char.luo",
+    "name": "罗正明",
+    "role": "退休工程师 · 水库技术组原副组长",
+    "color": "#9aafa6",
+    "shortBio": "「那天晚上，谁都只能先让人走。」「后来没塌。」"
+  },
+  {
+    "id": "ch4.char.taoxianfa",
+    "name": "陶先发",
+    "role": "返乡协会代表",
+    "color": "#b7a36b",
+    "shortBio": "旧城开照相馆的，撤离后修过钟表、卖过保险。「水没下来。」"
+  },
+  {
+    "id": "ch4.char.grayMan",
+    "name": "灰夹克男",
+    "role": "登记第一天 · 那户",
+    "color": "#8a9a9c",
+    "shortBio": "材料齐全，不要返还，也不要补偿。「证明我不是找不到。」"
+  },
+  {
+    "id": "final.char.self",
+    "name": "档案员（本人）",
+    "role": "终章 · 归档者",
+    "color": "#b6aea0",
+    "shortBio": "把四章从过去里捞出来的东西，最后一页由他落。"
   }
 ]

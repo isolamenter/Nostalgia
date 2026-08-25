@@ -11,6 +11,7 @@ import type {
   ArchiveStatus,
   ArchiveType,
   ChapterData,
+  ChapterSettlementDef,
   Character,
   Choice,
   Condition,
@@ -79,6 +80,23 @@ export const storyNodeSchema: z.ZodType<StoryNode> = strictObj(
   }),
 )
 
+export const chapterSettlementDefSchema: z.ZodType<ChapterSettlementDef> = strictObj(
+  z.object({
+    docket: z.string().optional(),
+    number: z.string().optional(),
+    kicker: z.string().optional(),
+    theme: z.string().optional(),
+    triggerFlag: z.string().min(1),
+    endingFlag: z.string().min(1),
+    defaultEnding: z.string().optional(),
+    endings: z.record(
+      z.string(),
+      strictObj(z.object({ title: z.string(), lines: z.array(z.string()) })),
+    ),
+    foot: z.string().optional(),
+  }),
+)
+
 export const chapterSchema: z.ZodType<ChapterData> = strictObj(
   z.object({
     chapterId: z.string().min(1),
@@ -86,6 +104,8 @@ export const chapterSchema: z.ZodType<ChapterData> = strictObj(
     nodes: z.array(storyNodeSchema),
     startMap: z.string().min(1).optional(),
     intro: z.object({ flag: z.string().min(1), node: z.string().min(1) }).strict().optional(),
+    next: z.string().min(1).optional(),
+    settlement: chapterSettlementDefSchema.optional(),
   }),
 )
 

@@ -1,0 +1,276 @@
+{
+  "chapterId": "ch3",
+  "title": "临时停靠",
+  "startMap": "ch3.maps.depot",
+  "intro": { "flag": "ch3.intro.done", "node": "ch3.intro.1" },
+  "next": "ch4",
+  "settlement": {
+    "docket": "青潭县公交公司 / 站点归档",
+    "number": "QT-03-017",
+    "kicker": "第三章终局 · 一个临时停靠点的去向",
+    "theme": "回不来的人，是否需要一个出口？",
+    "triggerFlag": "ch3.chapter.end",
+    "endingFlag": "ch3.ending",
+    "defaultEnding": "held",
+    "endings": {
+      "retained": {
+        "title": "出口留着",
+        "lines": [
+          "站牌立住了，就在养护标牌外那一截直路上。",
+          "二十秒每天都有。没人下来，门也照开。",
+          "陶婆说「不是这里」，也还是下来了。",
+          "你想起父亲那把钥匙——他最后才走。",
+          "这一站，算是替他停的。"
+        ]
+      },
+      "held": {
+        "title": "位置悬着",
+        "lines": [
+          "你没有提交。平板上那一条还写着：未在期限内提交有效异议。",
+          "站还是临时点。每天停二十秒，随时可以撤。",
+          "地图上的红点从空心到实心，「临时」两个字却还没去掉。",
+          "位置空着。空着，也是一种记法。"
+        ]
+      },
+      "discarded": {
+        "title": "整改干净",
+        "lines": [
+          "你按了整改。停靠暂停。",
+          "养护的人把黄纸和凳子往草里移。",
+          "站牌没有立，就撤了。",
+          "那不是站。本来，门也没有连着一个地方。"
+        ]
+      }
+    },
+    "foot": "岔河口，正常停靠。下一次翻开，车停不停由你自己决定。"
+  },
+  "nodes": [
+    {
+      "id": "ch3.intro.1",
+      "mode": "prose",
+      "text": "五点四十分，首班还没发。\n\n你站在场站的白线外，看那辆旧车被倒出来。车头压过排水沟，右前轮轻轻颠了一下——仪表台上那只塑料杯跟着晃，杯盖裂了一道口，里面没有水，放着两枚钥匙和一卷发白的绝缘胶带。",
+      "next": "ch3.intro.2"
+    },
+    {
+      "id": "ch3.intro.2",
+      "mode": "prose",
+      "text": "车在停车位外停稳。司机检查前后门，试了一次停车铃，又把报站器切到自动。屏幕上依次跳出线路编号、车辆编号、当日班次。\n\n这趟线你坐过不少次：南岭县城到白沙镇，新安社区西口之后是青潭水库公路。路从山腰绕过去，右边是水——那一段，没有站。",
+      "next": "ch3.intro.3"
+    },
+    {
+      "id": "ch3.intro.3",
+      "mode": "prose",
+      "text": "你投币，往后走。\n\n车还空着。今天，先从这辆车上开始看。",
+      "flags": [{ "flag": "ch3.intro.seen", "value": true }],
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.dispatch.1",
+      "mode": "prose",
+      "text": "调度室窗口压着一册记录。\n\n系统里有一条黄色记录：时间六点四十五分，地点在水库公路弯道。原因一栏写着——岔河口站未按规定停靠。\n\n「乘客投诉。说按了铃，车没开门。」\n\n旁边有人用圆珠笔补了一句：下一次在安全位置停二十秒，别留一条。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.route.1",
+      "mode": "prose",
+      "text": "铁盒底下压着一张线路调整通知，纸角露出「准点率」三个字。\n\n再往下压着旧表。新表印着岔河口，旧的没有。两张纸叠在一起，旧表边缘露出「西口」两个字。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.fathercard.1",
+      "mode": "prose",
+      "text": "司机储物柜最底下，压着一本蓝皮笔记本。后面几页被撕掉，只剩线头。搪瓷缸压着一张老年乘车证——照片里的人头发还黑。\n\n塑料套背面有一道折痕，正好从「新安社区」四个字中间穿过去。\n\n本子里没有名单。那几页去哪了，只有他自己知道。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.announcer.1",
+      "mode": "prose",
+      "text": "报站器就挂在驾驶座上方。\n\n屏幕上没有站名，仍显示下一站白沙镇北门。可声音先到了：\n\n「下一站，岔河口。」\n\n岔河口早就没有站。旧路也不从这里走。真正的岔河口在水库东边，隔着一道山脊，早就沉到水下了。你小时候去过几次，河边有晒谷场，夏天石头烫脚。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.stopBell.1",
+      "mode": "prose",
+      "text": "扶手杆上那一排停车铃。\n\n「叮——」\n\n一声。你回头看车里。没有人站起来。前排老人仍低着头，坐第二排的女孩把手机放回口袋，朝窗外看了一眼。\n\n铃响了，没有人要下。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.taopo.1",
+      "mode": "dialogue",
+      "speaker": "ch3.char.taopo",
+      "text": "“岔河口不在那边。”她说。\n\n她穿灰色布衫，袖口套着一截黑色护腕。\n\n“旧河汊在东头。早上太阳先照渡口。你刚才停车的地方，太阳从后山出来。”",
+      "next": "ch3.s.taopo.2"
+    },
+    {
+      "id": "ch3.s.taopo.2",
+      "mode": "dialogue",
+      "speaker": "ch3.char.taopo",
+      "text": "“那搜什么？”\n“石桥。”\n\n“搜石桥把你带山后去了。”\n\n“山后才是石桥。”\n\n“现在又没路。”\n“没路也在那里。”",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.woolhat.1",
+      "mode": "dialogue",
+      "speaker": "ch3.char.woolHat",
+      "text": "戴黑毛线帽的老人扶着椅背站起来，往后门走了两步，在门前停住。\n\n“下吗？”司机问。\n\n老人只朝外看。风从门外灌进来，把裤脚吹得贴在小腿上。",
+      "next": "ch3.s.woolhat.2"
+    },
+    {
+      "id": "ch3.s.woolhat.2",
+      "mode": "prose",
+      "text": "二十秒到了。\n\n他没有下。退回座位，坐回原位。\n\n车门关上。你听见他把气呼得很长。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.stopsign.1",
+      "mode": "prose",
+      "text": "护栏里侧浇了一小块水泥，蓝底白字的站牌立着：岔河口。\n\n绿色塑料凳被挪到旁边，靠背上的旧字朝向公路外侧。凳面晒得发白，一条腿用铁丝绑过——黑笔写着「岔河口」，被蓝笔划掉，旁边写「石桥」，背面还有两个小字：柳湾。\n\n一个地方，三个名字。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.offerbag.1",
+      "mode": "prose",
+      "text": "后门边放着一个红塑料袋，袋口露出黄纸，还有一小瓶白酒。\n\n有人把它拎到后门旁，走了一步，又放下。\n\n不是要走。是替谁放的。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.water.1",
+      "mode": "prose",
+      "text": "水库上有一层白雾，水面露出的部分像没擦干净的玻璃。\n\n护栏刚换过一段，新镀锌的地方比两头亮。\n\n真正的岔河口在水下。从这里看，什么也看不到。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.dispatch.before",
+      "mode": "dialogue",
+      "speaker": "ch3.char.dispatch",
+      "text": "“早班水库路段怎么没停？”\n\n她没抬头。\n\n“那里没站。”\n\n“我知道。养护标牌外面有截直路，别停弯里。”",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.dispatch.hello",
+      "mode": "dialogue",
+      "speaker": "ch3.char.dispatch",
+      "text": "“临时停靠不能一直临时。”她敲了敲鼠标。\n\n“要么成为站，要么按安全要求整改。”\n\n“平板上让你确认。历史站点恢复现场确认——站点名称，岔河口。”",
+      "next": "ch3.s.dispatch.2"
+    },
+    {
+      "id": "ch3.s.dispatch.2",
+      "mode": "dialogue",
+      "speaker": "ch3.char.dispatch",
+      "text": "“你就确认个位置。后头，不是你定。”\n\n她把新线路表递过来。岔河口印在新安社区西口和白沙镇北门之间——到站时间六点四十五分，停靠二十秒。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.zhao.before",
+      "mode": "dialogue",
+      "speaker": "ch3.char.zhao",
+      "text": "“这趟线没有岔河口。”\n\n司机没抬头，把钥匙放进窗口的小铁盒。\n\n“机器报的。”\n\n“机器的嘴，你不用全信。”",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.s.zhao.hello",
+      "mode": "dialogue",
+      "speaker": "ch3.char.zhao",
+      "text": "“岔河口？”他看了你一眼，“那不是个地名，是旧河汊。\n\n水库东边，早沉了。我小时候还去过，河边有晒谷场。”",
+      "next": "ch3.s.zhao.father"
+    },
+    {
+      "id": "ch3.s.zhao.father",
+      "mode": "dialogue",
+      "speaker": "ch3.char.zhao",
+      "text": "“我爸最后几年，总在这一段站起来。”\n\n他停了一下。\n\n“说‘前面停’。我说这里没站。他说，以前就在这里停。”",
+      "next": "ch3.s.zhao.card"
+    },
+    {
+      "id": "ch3.s.zhao.card",
+      "mode": "prose",
+      "text": "“后来你问他站哪儿，他指护栏外，又改指山坡，最后把手放下。”\n\n“他说：‘都在这里。’”\n\n车里静了一会儿。",
+      "next": "ch3.s.zhao.dispatch"
+    },
+    {
+      "id": "ch3.s.zhao.dispatch",
+      "mode": "dialogue",
+      "speaker": "ch3.char.zhao",
+      "text": "“调度说，临时停靠不能一直临时。要么成为站，要么按安全要求整改。”\n\n“平板上让我确认一个地址。历史站点恢复现场确认——站点名称，岔河口。”",
+      "next": "ch3.s.zhao.confirm"
+    },
+    {
+      "id": "ch3.s.zhao.confirm",
+      "mode": "prose",
+      "text": "那行字在夜里亮着。\n\n「这里是当年上车的地方。」——他在补充说明里写。系统仍要求先选「属实」或「有误」。\n\n他现在站在你面前，等你替他把这一页翻到该去的地方。",
+      "next": "ch3.s.zhao.adjudicate"
+    },
+    {
+      "id": "ch3.s.zhao.adjudicate",
+      "mode": "prose",
+      "text": "你替他把这个临时停靠点的去向落下来。\n\n替那些回不来的人，留一个出口。",
+      "choices": [
+        {
+          "id": "ch3.choose.retained",
+          "text": "正式立成站——留一个出口，给回不来的人",
+          "flags": [
+            { "flag": "archive.ch3.archive.dispatchNote.status", "value": "retained" },
+            { "flag": "archive.ch3.archive.tempStop.status", "value": "retained" },
+            { "flag": "archive.ch3.archive.fatherCard.status", "value": "retained" },
+            { "flag": "ch3.ending", "value": "retained" },
+            { "flag": "ch3.chapter.end", "value": true }
+          ],
+          "next": "ch3.event.resolution"
+        },
+        {
+          "id": "ch3.choose.held",
+          "text": "继续临时悬置——先不判，位置还空着",
+          "flags": [
+            { "flag": "archive.ch3.archive.dispatchNote.status", "value": "held" },
+            { "flag": "archive.ch3.archive.tempStop.status", "value": "held" },
+            { "flag": "archive.ch3.archive.fatherCard.status", "value": "held" },
+            { "flag": "ch3.ending", "value": "held" },
+            { "flag": "ch3.chapter.end", "value": true }
+          ],
+          "next": "ch3.event.resolution"
+        },
+        {
+          "id": "ch3.choose.discarded",
+          "text": "撤销整改——把这一页移出去",
+          "flags": [
+            { "flag": "archive.ch3.archive.dispatchNote.status", "value": "discarded" },
+            { "flag": "archive.ch3.archive.tempStop.status", "value": "discarded" },
+            { "flag": "archive.ch3.archive.fatherCard.status", "value": "discarded" },
+            { "flag": "ch3.ending", "value": "discarded" },
+            { "flag": "ch3.chapter.end", "value": true }
+          ],
+          "next": "ch3.event.resolution"
+        }
+      ]
+    },
+    {
+      "id": "ch3.event.resolution",
+      "mode": "prose",
+      "text": "你合上那页。\n\n车窗外，站牌在雾里。",
+      "next": [
+        { "when": { "hasFlag": "ch3.ending", "equals": "retained" }, "to": "ch3.event.epilogue.retained" },
+        { "when": { "hasFlag": "ch3.ending", "equals": "held" }, "to": "ch3.event.epilogue.held" },
+        { "when": { "hasFlag": "ch3.ending", "equals": "discarded" }, "to": "ch3.event.epilogue.discarded" },
+        { "to": "ch3.event.epilogue.held" }
+      ]
+    },
+    {
+      "id": "ch3.event.epilogue.retained",
+      "mode": "prose",
+      "text": "站牌立住了。蓝底白字，就在养护标牌外那一截直路上。\n\n二十秒每天都有。没人下来，门也照开。\n\n陶婆还是站在门边。她说「不是这里」，也还是下来了。\n\n你想起父亲那把钥匙——他最后才走。这一站，算是替他停的。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.event.epilogue.held",
+      "mode": "prose",
+      "text": "你没有提交。平板上那一条还写着：未在期限内提交有效异议。\n\n站还是临时点。每天停二十秒，随时可以撤。\n\n位置空着。空着，也是一种记法。",
+      "next": "$END"
+    },
+    {
+      "id": "ch3.event.epilogue.discarded",
+      "mode": "prose",
+      "text": "你按了整改。\n\n停靠暂停。黄纸、凳子，养护的人往草里移。\n\n站牌还没有立，就撤了。\n\n那不是站。本来，门也没有连着一个地方。",
+      "next": "$END"
+    }
+  ]
+}

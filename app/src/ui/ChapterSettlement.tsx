@@ -19,66 +19,45 @@ const STATUS_LABEL: Record<ArchiveStatus, string> = {
   discarded: '移出',
 };
 
-/** 三结局结算行文（源自手稿 §十三–十四：回北方、站点停用、第二碗面） */
-const ENDING_TEXT: Record<string, { title: string; lines: string[] }> = {
-  retained: {
-    title: '位置留着',
-    lines: [
-      '回北方以后，青潭上游站的停用申请很快通过。技术部门关掉旧接口，把残留数据转进历史库。',
-      '清点表多出的一页没有作废。第二个名字被记下——替缺席者留一个位置。',
-      '你自己也开始煮面。面下到一半，觉得多了，却没有抽回去。',
-      '你从橱柜里拿出第二个碗。剩下的面只铺住碗底，你加了一点汤，夹了两根青菜。',
-      '洗完之后，晾碗架原本只够放一只碗。你把旁边的杯子往里挪了一点，空出一个位置。',
-      '两个碗，并排扣下去。',
-    ],
-  },
-  held: {
-    title: '位置空着',
-    lines: [
-      '回北方以后，青潭上游站的停用申请通过。站点状态变灰，下面写着：已撤销。',
-      '那几份记录没有判。你放回待核篮，位置还空着——空着，也是一种记法。',
-      '夜里你煮面。水开得很快，你放了一个鸡蛋，一把青菜，又抓了一把挂面。',
-      '盛好一碗。锅里还剩一点，你没有立刻关火。',
-      '看了很久，最后还是把剩下的留着，装进保鲜盒，放进冰箱。',
-      '第二天早上，你把它带到了单位。',
-    ],
-  },
-  discarded: {
-    title: '收拾干净',
-    lines: [
-      '回北方以后，青潭上游站的停用申请通过。那几份异常的记录，你没有保留。',
-      '第二份没有出现。',
-      '你自己煮面，量正好。',
-      '洗干净的碗，一只一只扣回晾碗架。位置刚好够，一只也不多。',
-      '窗外有行李箱压过结冰地面，一格一格地响。',
-      '你没有回头。',
-    ],
-  },
-};
-
-/** 章节结算：第一章《第二份》终局浮层（由内容 flag ch1.chapter.end 驱动） */
+/**
+ * 章节结算：由当前章 `settlement` 定义的数据驱动浮层。
+ * 标题 / 主题 / 归档抬头编号 / 三结局行文 / 触发 flag 全部来自章节数据，
+ * 支持章节链（`next` 存在时提供「下一章」，否则「回到标题」）。
+ */
 export function ChapterSettlement() {
+  const chapterId = useGameStore((s) => s.world.currentChapter);
+  const chapter = useGameStore((s) => s.data.chapters.get(chapterId));
   const discovered = useGameStore((s) => s.world.discoveredArchives);
   const entries = useGameStore((s) => s.data.archives);
-  const ending = useGameStore((s) => s.world.flags['ch1.ending']);
-  const saveToManual = useGameStore((s) => s.openPanel);
+  const flags = useGameStore((s) => s.world.flags);
+  const openPanel = useGameStore((s) => s.openPanel);
+  const advanceToChapter = useGameStore((s) => s.advanceToChapter);
+
+  const settlement = chapter?.settlement;
+  const next = chapter?.next;
+  const canAdvance = useGameStore((s) => (next ? s.data.chapters.has(next) : false));
+  if (!settlement) return null;
+
+  const endingRaw = flags[settlement.endingFlag];
+  const ending = typeof endingRaw === 'string' ? endingRaw : '';
+  const endingText =
+    settlement.endings[ending] ??
+    settlement.endings[settlement.defaultEnding ?? 'held'] ?? { title: '', lines: [] };
 
   const ids = Object.keys(discovered).sort(
     (a, b) => (discovered[a]?.discoveredAt ?? 0) - (discovered[b]?.discoveredAt ?? 0),
   );
-  const endingText = ENDING_TEXT[typeof ending === 'string' ? ending : ''] ??
-    ENDING_TEXT.held ?? { title: '', lines: [] };
 
   return (
     <div className="settlement-layer">
       <div className="settlement-card">
         <div className="settlement-docket">
-          <span>青潭县档案馆 / 章节归档</span>
-          <span>QT-01-002</span>
+          <span>{settlement.docket ?? '档案 / 章节归档'}</span>
+          <span>{settlement.number ?? ''}</span>
         </div>
-        <p className="settlement-kicker">第一章终局 · 一页档案落定</p>
-        <h2 className="settlement-title">《第二份》</h2>
-        <p className="settlement-theme">不在场的人，是否仍算家庭成员？</p>
+        <p className="settlement-kicker">{settlement.kicker ?? ''}</p>
+        <h2 className="settlement-title">《{chapter?.title ?? ''}》</h2>
+        <p className="settlement-theme">{settlement.theme ?? ''}</p>
 
         <div className="settlement-archives">
           <p className="settlement-archives-head">档案清点</p>
@@ -110,15 +89,20 @@ export function ChapterSettlement() {
         </div>
 
         <div className="settlement-actions">
-          <button onClick={() => saveToManual('save')}>保存进度</button>
+          <button onClick={() => openPanel('save')}>保存进度</button>
+          {canAdvance ? (
+            <button className="primary" onClick={() => advanceToChapter(next!)}>
+              下一章
+            </button>
+          ) : null}
           <button
-            className="primary"
+            className={canAdvance ? '' : 'primary'}
             onClick={() => useGameStore.setState({ screen: 'title' })}
           >
             回到标题
           </button>
         </div>
-        <p className="settlement-foot">这一份档案暂时安静下来。下一次翻开，由你自己决定。</p>
+        <p className="settlement-foot">{settlement.foot ?? ''}</p>
       </div>
     </div>
   );

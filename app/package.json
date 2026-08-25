@@ -18,6 +18,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check:data": "tsx scripts/check-data.ts",
+    "merge:drafts": "tsx scripts/merge-drafts.ts",
     "ci": "npm run typecheck && npm run lint && npm run test && npm run check:data && npm run build"
   },
   "dependencies": {

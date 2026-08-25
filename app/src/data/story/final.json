@@ -1,0 +1,210 @@
+{
+  "chapterId": "final",
+  "title": "最后一册",
+  "startMap": "final.maps.archives",
+  "intro": { "flag": "final.intro.done", "node": "final.intro.1" },
+  "settlement": {
+    "docket": "青潭县档案馆 / 终章归档",
+    "number": "QT-END",
+    "kicker": "终章 · 一套档案的最后落处",
+    "theme": "档案会为现在，分配一个过去。你留下什么，就分配了一个怎样的过去。",
+    "triggerFlag": "final.chapter.end",
+    "endingFlag": "final.ending",
+    "defaultEnding": "held",
+    "endings": {
+      "retained": {
+        "title": "归档保全",
+        "lines": [
+          "青潭水库重大险情，你按「已避免」落档。",
+          "清点表上那个 +1、入口那句末车再核、水库那一声重响——一起归了位。",
+          "留在档案室；为现在，保留了一个可确认的过去。"
+        ]
+      },
+      "held": {
+        "title": "留白悬置",
+        "lines": [
+          "事件状态的三圆，仍空着。你没有提交。",
+          "受灾人口 0、迁移人口 12463——数据齐全，判断缺一。",
+          "空着的位置，也是一种归宿。"
+        ]
+      },
+      "discarded": {
+        "title": "销毁清零",
+        "lines": [
+          "你把这一整套，从移交清单上划掉。",
+          "没有可确认的风险。未发生。",
+          "钥匙隔着口袋布轻轻碰了一下工作证，落在出口的方向。"
+        ]
+      }
+    },
+    "foot": "四章从过去里捞出来的东西，到这里歇下。下一次被翻开，由那时的人决定。"
+  },
+  "nodes": [
+    {
+      "id": "final.intro.1",
+      "mode": "prose",
+      "text": "十一月的最后一天，你回到县档案馆。\n\n档案室的门没有锁严，暖气停了一周，屋里比外面凉。灯管坏了一根，另一半照下来，桌面的灰被压成浅色的一层。\n\n你手里那把钥匙，隔着口袋布，碰了一下工作证。",
+      "next": "final.intro.2"
+    },
+    {
+      "id": "final.intro.2",
+      "mode": "prose",
+      "text": "你记起开放日那一天。\n\n铁门里，工作人员一格一格收警戒带。东风路被树影挡住，只看得见几块招牌的上沿。山后水库拆除工地又传来一声重响——钝的，像地底下有什么东西翻了个身。\n\n母亲停下来，回头看过一次。你没有问她当时在看什么。",
+      "next": "final.intro.3"
+    },
+    {
+      "id": "final.intro.3",
+      "mode": "prose",
+      "text": "现在，这一层只剩你。\n\n你把手机放上桌，把四章里从过去捞出来的东西，一件一件摊开。\n\n你要给这一整套档案，找一个最后的落处。",
+      "flags": [{ "flag": "final.intro.seen", "value": true }],
+      "next": "$END"
+    },
+    {
+      "id": "final.s.desk.1",
+      "mode": "prose",
+      "text": "归档桌上，你把它摊开。\n\n一个不在场的人——他在发放表上被多记了一笔。一条返回的入口——末车栏旁那句「未到，末车再核」。一场没有来的水——水库拆掉时的重响，和一直没有提交的三圆。\n\n四章的东西，此刻叠在同一个桌面上。",
+      "next": "final.s.desk.2"
+    },
+    {
+      "id": "final.s.desk.2",
+      "mode": "prose",
+      "text": "你翻到总清点：受灾人口 0，迁移人口 12463。\n\n事件状态那一栏，三个圆圈还空着。\n\n再往下，是你自己在几章里写下的判断——",
+      "next": [
+        { "when": { "any": [
+          { "hasFlag": "ch1.ending", "equals": "discarded" },
+          { "hasFlag": "ch2.ending", "equals": "discarded" },
+          { "hasFlag": "ch3.ending", "equals": "discarded" },
+          { "hasFlag": "ch4.ending", "equals": "discarded" }
+        ] }, "to": "final.s.desk.note.anyDiscarded" },
+        { "when": { "any": [
+          { "hasFlag": "ch1.ending", "equals": "held" },
+          { "hasFlag": "ch4.ending", "equals": "held" }
+        ] }, "to": "final.s.desk.note.anyHeld" },
+        { "to": "final.s.desk.note.default" }
+      ]
+    },
+    {
+      "id": "final.s.desk.note.anyDiscarded",
+      "mode": "prose",
+      "text": "四章里，有被你划掉过的一章。\n\n那条划掉的红线，今天也压在这叠纸最底下。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.desk.note.anyHeld",
+      "mode": "prose",
+      "text": "四章里，有你悬着没判的。\n\n那几本还停在待核篮里——空着，也是一种记法。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.desk.note.default",
+      "mode": "prose",
+      "text": "四章的落脚，你各自给过一个去处了。\n\n到这一册，轮到它们一起落。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.cabinet.1",
+      "mode": "prose",
+      "text": "档案柜第二层，锁开着。\n\n里面是一份事件性质建议：附件可以写两种意见，主状态只能选一个。\n\n你一页一页翻过去——已发生。未发生。已避免。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.key.1",
+      "mode": "prose",
+      "text": "钥匙在口袋里，隔着布碰了一下工作证。\n\n你想起母亲把鞋尖摆朝后门的那句话：真要走的时候，省时间。\n\n钥匙没有掏出来。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.basket.1",
+      "mode": "prose",
+      "text": "待核篮里，还压着几份没有判的。\n\n你把它往桌角推了推——有的东西，不是非得分出对错，才叫有下落。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.binders.pending",
+      "mode": "prose",
+      "text": "总册还差一册没有归位。\n\n你先把桌上的档案理了理，等那一本也到齐，再一起摊。",
+      "next": "$END"
+    },
+    {
+      "id": "final.s.binders.1",
+      "mode": "prose",
+      "text": "你把两册并排放好。\n\n归档总清点。事件性质建议。\n\n你要在这两册之间，给这一整套归属，做一个终判。",
+      "next": "final.s.self.1"
+    },
+    {
+      "id": "final.s.self.1",
+      "mode": "dialogue",
+      "speaker": "final.char.self",
+      "text": "档案会为现在，分配一个过去。\n\n你留下什么，就分配了一个怎样的过去。\n\n——这一册，你想让它怎么落？",
+      "next": "final.event.adjudicate"
+    },
+    {
+      "id": "final.event.adjudicate",
+      "mode": "prose",
+      "text": "你翻开总册的最后一页。\n\n这一整套档案——一个不在场的人、一条返回的入口、一场没来的水——要在「归档保全 / 留白悬置 / 销毁清零」之间，落一个终判：",
+      "choices": [
+        {
+          "id": "final.choose.retained",
+          "text": "归档保全——让这一整套档案有个去处",
+          "flags": [
+            { "flag": "archive.final.archive.totals.status", "value": "retained" },
+            { "flag": "archive.final.archive.event.status", "value": "retained" },
+            { "flag": "final.ending", "value": "retained" },
+            { "flag": "final.chapter.end", "value": true }
+          ],
+          "next": "final.event.close"
+        },
+        {
+          "id": "final.choose.held",
+          "text": "留白悬置——三个圆圈还空着",
+          "flags": [
+            { "flag": "archive.final.archive.totals.status", "value": "held" },
+            { "flag": "archive.final.archive.event.status", "value": "held" },
+            { "flag": "final.ending", "value": "held" },
+            { "flag": "final.chapter.end", "value": true }
+          ],
+          "next": "final.event.close"
+        },
+        {
+          "id": "final.choose.discarded",
+          "text": "销毁清零——把移交清单这一行划掉",
+          "flags": [
+            { "flag": "archive.final.archive.totals.status", "value": "discarded" },
+            { "flag": "archive.final.archive.event.status", "value": "discarded" },
+            { "flag": "final.ending", "value": "discarded" },
+            { "flag": "final.chapter.end", "value": true }
+          ],
+          "next": "final.event.close"
+        }
+      ]
+    },
+    {
+      "id": "final.event.close",
+      "mode": "prose",
+      "text": "你合上总册。\n\n钥匙隔着口袋布，轻轻碰了一下工作证。",
+      "next": [
+        { "when": { "hasFlag": "final.ending", "equals": "retained" }, "to": "final.event.epilogue.retained" },
+        { "when": { "hasFlag": "final.ending", "equals": "discarded" }, "to": "final.event.epilogue.discarded" },
+        { "to": "final.event.epilogue.held" }
+      ]
+    },
+    {
+      "id": "final.event.epilogue.retained",
+      "mode": "prose",
+      "text": "你把这两册放进档案柜，柜门合拢，锁上。\n\n受灾人口仍是 0，迁移人口 12463。你替那个位置、替那条入口、替那场没来的水——留着它们。\n\n事件状态，你填了：已避免。\n\n档案会为现在分配一个过去。你留下这一套，等于把这个过去，认领了下来。",
+      "next": "$END"
+    },
+    {
+      "id": "final.event.epilogue.held",
+      "mode": "prose",
+      "text": "你把两册放回待核篮。\n\n三个圆圈，还是空的。你没有提交。\n\n位置空着，也是一种记法——像那场没来的水，像那句「未到，末车再核」。\n\n你把钥匙放回口袋，没有决定，也没有推翻。",
+      "next": "$END"
+    },
+    {
+      "id": "final.event.epilogue.discarded",
+      "mode": "prose",
+      "text": "你把这套档案，从移交清单上划掉。\n\n受灾人口 0，迁移人口 12463。——没有可确认的风险。\n\n事件状态，你填了：未发生。\n\n你合上册子，把那一段过去，还给了它所在的地方。钥匙碰了碰工作证，响了一声。",
+      "next": "$END"
+    }
+  ]
+}

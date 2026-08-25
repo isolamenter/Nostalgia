@@ -52,8 +52,11 @@ describe('第一章《第二份》内容闭环', () => {
     expect(catalog.maps.has(chapter.startMap!)).toBe(true)
     expect(graph.byId.has(chapter.intro!.node)).toBe(true)
 
-    // 每个物件引用到的节点 / 档案
-    for (const item of catalog.items.values()) {
+    // 每个物件引用到的节点 / 档案（本章测试只针对 ch1 物件；其它章节见 content-crossref.test.ts）
+    const ch1Items = [...catalog.items.values()].filter(
+      (i) => catalog.maps.get(i.location)?.chapter === 'ch1',
+    )
+    for (const item of ch1Items) {
       for (const key of ['inspect', 'dialogue', 'unmetInspect'] as const) {
         const target = item[key]
         if (target) expect(graph.byId.has(target), `${item.id}.${key} → ${target}`).toBe(true)

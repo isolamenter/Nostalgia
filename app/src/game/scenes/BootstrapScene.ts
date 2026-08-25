@@ -1,9 +1,9 @@
 import Phaser from 'phaser'
-import { useGameStore, DEFAULT_START_MAP, DEFAULT_START_POS } from '../../state/store'
+import { useGameStore, resolvePlaythroughStart } from '../../state/store'
 
 /**
  * 启动场景：数据由 main.tsx 提前 hydrate（本场景兜底再验），
- * 决定进入哪张地图；若当前没有会话则落回默认起点。
+ * 决定进入哪张地图；若当前没有会话则落回数据驱动的头章起点。
  */
 export class BootstrapScene extends Phaser.Scene {
   constructor() {
@@ -21,11 +21,12 @@ export class BootstrapScene extends Phaser.Scene {
       return
     }
 
-    // 全新会话：默认地图
-    st.setMap(DEFAULT_START_MAP)
+    // 全新会话兜底：数据驱动头章起点（正常流程由 newGame 先设好 currentMap）
+    const { mapId, spawn } = resolvePlaythroughStart(st.data)
+    st.setMap(mapId)
     this.scene.start('MapScene', {
-      mapId: DEFAULT_START_MAP,
-      spawn: { x: DEFAULT_START_POS.x, y: DEFAULT_START_POS.y },
+      mapId,
+      spawn: { x: spawn.x, y: spawn.y },
     })
   }
 }

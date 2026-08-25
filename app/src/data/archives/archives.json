@@ -264,5 +264,948 @@
         ]
       }
     ]
+  },
+  {
+    "id": "ch2.archive.blackshoes",
+    "type": "incident-report",
+    "title": "青梧街 · 门口黑皮鞋（附纸条）",
+    "lines": [
+      "鞋尖朝街，左右并排",
+      "右脚后跟向外翻开，里面的纸板已经发黄",
+      "左鞋里塞着折过两次的纸：后跟照旧。周五来取。",
+      "无姓名 · 无电话",
+      "鞋码 41；左鞋前掌磨得厉害，右后跟偏磨",
+      "鞋底缝里嵌着一点红色粉末——像砖屑",
+      "※ 门口墙根下，放了快一个月"
+    ],
+    "foundFrom": "ch2.object.blackshoes",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 黑皮鞋",
+        "lines": [
+          "与商户登记、工具袋互相印证。",
+          "鞋垫上一块白磨痕，像半个「白」字。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 黑皮鞋",
+        "lines": [
+          "鞋放回最外侧的格子。",
+          "位置还占着，等一个没有人说的『周五』。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 黑皮鞋",
+        "lines": [
+          "没有判。鞋留在原地，谁也不能碰。",
+          "纸条压在玻璃下面。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 黑皮鞋",
+        "lines": [
+          "鞋被送走。",
+          "格子空了出来。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch2.archive.toolbag",
+    "type": "cleanup-list",
+    "title": "旧戏院清杂 17 · 帆布工具袋",
+    "lines": [
+      "帆布工具袋，拉链坏了一半",
+      "两把螺丝刀 · 一只活口扳手 · 一卷电工胶布",
+      "几颗大小不一的螺母",
+      "袋底一张被油浸透的纸，只剩一个模糊的「周」字",
+      "白签：旧戏院清杂 17",
+      "※ 清运工放到店里，说没人领就扔"
+    ],
+    "foundFrom": "ch2.object.toolbag",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 帆布工具袋",
+        "lines": [
+          "白签与铁皮箱标签同一批次。",
+          "油浸纸上的「周」，与另一个签名笔迹对不上。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 帆布工具袋",
+        "lines": [
+          "袋子挂回墙上那颗钉子。",
+          "旧戏院清出的东西，再留一留。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 帆布工具袋",
+        "lines": [
+          "拉链用细铁丝穿起来。",
+          "没人认领，也没人来说扔。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 帆布工具袋",
+        "lines": [
+          "钉子空出来了。",
+          "围裙重新挂回去。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch2.archive.ledger",
+    "type": "ledger",
+    "title": "许记修鞋铺 · 修鞋账本（节选）",
+    "lines": [
+      "黑皮鞋，右跟，二十五元。",
+      "客户姓名：空白。",
+      "※ 一星期后，当天要取的两双女鞋被塞到旁边一格。",
+      "黑皮鞋没有动。"
+    ],
+    "foundFrom": "ch2.object.ledger",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 修鞋账本",
+        "lines": [
+          "账本一行，与鞋底胶痕一致。",
+          "二十五元，是右后跟换底的价格。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 修鞋账本",
+        "lines": [
+          "那一行没有划掉。",
+          "客户姓名空着，也算一笔账。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 修鞋账本",
+        "lines": [
+          "你让它停在待核篮里。",
+          "姓名一栏，还空着。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 修鞋账本",
+        "lines": [
+          "这一页被抽走。",
+          "黑皮鞋的账，清掉了。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch2.archive.registration",
+    "type": "registration",
+    "title": "许记修鞋铺 · 二〇一三年商户登记（扫描件）",
+    "lines": [
+      "经营人：许观",
+      "共同经营人：周少白",
+      "两个签名。第一个是许观的；另一个写得很松，最后一笔拖得很长。",
+      "※ 扫描件边缘有装订孔黑影；原表在旧档案，可申请调取"
+    ],
+    "foundFrom": "ch2.object.registration",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 商户登记",
+        "lines": [
+          "与黄页、旧档案编号核对，周少白确在第二砖厂工作。",
+          "共同经营关系无人提起过。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 商户登记",
+        "lines": [
+          "『共同经营人』那一栏没有划掉。",
+          "一个签名，替另一个签名留着。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 商户登记",
+        "lines": [
+          "登记信息标记『处理中』。",
+          "先放着，等身份核完。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 商户登记",
+        "lines": [
+          "关系变更申请已提交。",
+          "『共同经营人』那一栏，划掉了。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch2.archive.relik",
+    "type": "incident-report",
+    "title": "旧戏院后仓 · 铁皮箱（周少白·待核）",
+    "lines": [
+      "灰色铁皮箱，箱盖新贴标签：周少白，待核。",
+      "旧手套 · 扁锉 · 搪瓷杯 · 几张粘住的收据",
+      "没有一样能证明是谁的",
+      "现场登记：周少白物品，暂存；联系人是许记修鞋铺",
+      "※ 无法确认；箱底标签手写：清点过，未移交"
+    ],
+    "foundFrom": "ch2.object.tinbox",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 铁皮箱",
+        "lines": [
+          "与商户登记、工具袋同指一人。",
+          "仍无一样实物能证明确是他的。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 铁皮箱",
+        "lines": [
+          "箱子贴着墙，标签下面加了一行字。",
+          "『清点过，未移交』。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 铁皮箱",
+        "lines": [
+          "『暂存』『待核』。",
+          "先不判，等身份核完再说。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 铁皮箱",
+        "lines": [
+          "移交单生成，箱子被拿走。",
+          "柜台后面空了一块。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch3.archive.announcer",
+    "type": "memo",
+    "title": "报站器 · 不存在的站名",
+    "lines": [
+      "自动报站：下一站，岔河口",
+      "显示屏仍显示：下一站 白沙镇北门",
+      "旧语音未清干净 / 或本就没清",
+      "※ 岔河口早已没有站，旧路也不从此走"
+    ],
+    "foundFrom": "ch3.object.announcer",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 报站器",
+        "lines": [
+          "把报站器关掉，到弯道前它还是响了。",
+          "电源灯是灭的。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 报站器",
+        "lines": [
+          "机器报的名，你让它有了一处好停的地方。",
+          "那一句，从此有了一站。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 报站器",
+        "lines": [
+          "你没关它，也没让它停。",
+          "报站声还悬在弯道上。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 报站器",
+        "lines": [
+          "语音库清过一次。",
+          "岔河口，不再播报。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch3.archive.stopBell",
+    "type": "incident-report",
+    "title": "停车铃 · 无人站起的瞬间",
+    "lines": [
+      "一声铃",
+      "车内镜：没有人站起来",
+      "前排老人仍低着头",
+      "坐第二排的女孩把手机放回口袋",
+      "※ 铃响了，没有人要下"
+    ],
+    "foundFrom": "ch3.object.stopBell",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 停车铃",
+        "lines": [
+          "连按三班都响，偏没人下。",
+          "黄牌上那句投诉是真的。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 停车铃",
+        "lines": [
+          "你把这声铃当作一条候车记录。",
+          "没人下的铃，也占一个位置。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 停车铃",
+        "lines": [
+          "铃还悬着。",
+          "下不下，先不判。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 停车铃",
+        "lines": [
+          "没人下的铃，不算进站。",
+          "这一声，划掉了。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch3.archive.dispatchNote",
+    "type": "incident-report",
+    "title": "调度室 · 黄色记录与整改通知",
+    "lines": [
+      "时间：06:45  地点：水库公路弯道",
+      "原因：岔河口站未按规定停靠",
+      "乘客投诉：按了铃，车没开门",
+      "圆珠笔补注：下一次在安全位置停二十秒，别留一条",
+      "手写：临时停靠不能一直临时。要么成为站，要么按安全要求整改。"
+    ],
+    "foundFrom": "ch3.object.dispatchRecord",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 调度室记录",
+        "lines": [
+          "与系统记录一致。",
+          "黄牌是真实的，那声铃也是真实的。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 调度室记录",
+        "lines": [
+          "你把这张黄牌归进档案。",
+          "它替一个没人下的站，留了一条停靠线。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 调度室记录",
+        "lines": [
+          "黄牌你没有判。",
+          "先压在待核篮里，等下一班。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 调度室记录",
+        "lines": [
+          "整改执行，停靠取消。",
+          "黄牌撤下，线路按安全要求走。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch3.archive.fatherCard",
+    "type": "registration",
+    "title": "父亲的老年乘车证",
+    "lines": [
+      "照片：头发仍黑",
+      "塑料套背面一道折痕，正从「新安社区」中间穿过去",
+      "蓝皮笔记本，后几页被撕，只剩线头",
+      "※ 他总在这一段站起来——「都在这里」"
+    ],
+    "foundFrom": "ch3.object.fatherCard",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 乘车证",
+        "lines": [
+          "与搬迁时点人的说法对上了。",
+          "他最后才走。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 乘车证",
+        "lines": [
+          "这一张留在柜子里。",
+          "替回不来的人，记一个上车点。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 乘车证",
+        "lines": [
+          "折痕还在。",
+          "你先把它放回柜子，没合上。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 乘车证",
+        "lines": [
+          "旧证收进抽屉底。",
+          "没有名单的车，不点人。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch3.archive.tempStop",
+    "type": "registration",
+    "title": "岔河口临时停靠点 · 正名",
+    "lines": [
+      "绿色塑料凳：黑笔「岔河口」，蓝笔划改「石桥」，背面「柳湾」",
+      "一个地方，三个名字",
+      "每趟停靠 20 秒，不论有没有人",
+      "地图多一个圆点：岔河口（临时）"
+    ],
+    "foundFrom": "ch3.object.stopSign",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 临时停靠点",
+        "lines": [
+          "凳子上的三个名字，指向同一个旧河汊。",
+          "真正的岔河口在水下。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 临时停靠点",
+        "lines": [
+          "正式立成站。蓝底白字，二十秒照停。",
+          "替回不来的人，留一个出口。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 临时停靠点",
+        "lines": [
+          "仍标（临时）。",
+          "停靠照旧，名字还悬着。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 临时停靠点",
+        "lines": [
+          "凳子连同名字被移出护栏外。",
+          "站撤了，点也消了。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch3.archive.offerBag",
+    "type": "photograph",
+    "title": "红塑料袋 · 黄纸与白酒",
+    "lines": [
+      "袋口露出黄纸，一小瓶白酒",
+      "被拎到后门旁，又放下",
+      "不是要走。是替谁放的",
+      "陶婆说：岔河口不在那边"
+    ],
+    "foundFrom": "ch3.object.offerBag",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 红塑料袋",
+        "lines": [
+          "黄纸未烧，酒未开。",
+          "放在后门，不是交人。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 红塑料袋",
+        "lines": [
+          "你也学会在那站一停。",
+          "替够不着的人，替他们放一放。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 红塑料袋",
+        "lines": [
+          "袋子还搁在后门。",
+          "先不动的，就先放着。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 红塑料袋",
+        "lines": [
+          "袋子随人带走了。",
+          "黄纸烧在别处。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.platform",
+    "type": "incident-report",
+    "title": "处置平台 · 首页",
+    "lines": [
+      "事件名称：青潭水库重大险情",
+      "受灾人口：0",
+      "迁移人口：12463",
+      "事件状态：待定",
+      "※ 顾宁把数字抄进笔记本"
+    ],
+    "foundFrom": "ch4.object.platform",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 平台首页",
+        "lines": [
+          "与险情原始记录核对：受灾人口确为 0。",
+          "待定两个字，没有人填。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 平台首页",
+        "lines": [
+          "你把这四行归入档案。",
+          "待定，也被当成一种记录留下来。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 平台首页",
+        "lines": [
+          "你让它停在待核篮。",
+          "12463 这个数字先放着，不算，也不划掉。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 平台首页",
+        "lines": [
+          "事件状态被改掉。",
+          "那四行不再出现在首页。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.risk",
+    "type": "incident-report",
+    "title": "青潭险情 · 7.18—7.24 原始记录",
+    "lines": [
+      "7.18 22:00  坝体渗压异常",
+      "7.18 23:40  三号测点无数据",
+      "7.19 00:15  值班员手写：右岸排水沟水色混",
+      "7.19 02:00  全城广播",
+      "7.19 06:10  三号测点恢复，数值低于报警线",
+      "再往后，水位下降",
+      "※ 纸箱外写着「青潭险情 7.18—7.24」，胶带手一碰就裂"
+    ],
+    "foundFrom": "ch4.object.riskBox",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 险情记录",
+        "lines": [
+          "与库房目录比对：时间、测点、手写比例相符。",
+          "三号测点为什么在最关键时断掉，登记为：线被水泡了。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 险情记录",
+        "lines": [
+          "那几条原始记录被留下。",
+          "水在那几天，确实有过一次异常。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 险情记录",
+        "lines": [
+          "你把它放回纸箱，没有下结论。",
+          "水位后来降下去了。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 险情记录",
+        "lines": [
+          "这几页被抽走。",
+          "后头没有塌，前面写的就当没发生过。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.key",
+    "type": "memo",
+    "title": "铁盒 · 钥匙",
+    "lines": [
+      "黄铜，齿口发黑",
+      "钥匙环上套着一小片钥匙牌",
+      "蓝字只剩下一个「东」",
+      "——东风路十七号 · 前门",
+      "※ 父亲收着的；母亲说「你带着。登记要用」"
+    ],
+    "foundFrom": "ch4.object.bronzeBox",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 钥匙",
+        "lines": [
+          "锁早锈死了。",
+          "齿口那层黑是锈，不是旧。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 钥匙",
+        "lines": [
+          "钥匙留了下来。",
+          "那把锁后来换了新的，这枚旧钥匙仍收着。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 钥匙",
+        "lines": [
+          "开门那天，钥匙只进去一半。",
+          "你把它放回铁盒，没有扔。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 钥匙",
+        "lines": [
+          "锁剪掉以后，钥匙没有用处了。",
+          "它被留在十七号，没有带出来。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.deed",
+    "type": "registration",
+    "title": "房契 · 东风路十七号",
+    "lines": [
+      "父亲把房契、粮本、水费单、手画街道图都装在铁盒里",
+      "每年过年前铺在阳台上晒，用茶杯压住四角",
+      "父亲去世前半年，在重新测过的危险区边界图上添了一条红线",
+      "红线没有经过东风路十七号",
+      "「他们自己也知道水不会来。」",
+      "※ 母亲在厨房里回了一句：人出来了就行"
+    ],
+    "foundFrom": "ch4.object.fatherMap",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 房契",
+        "lines": [
+          "红线确实避开了十七号。",
+          "这是父亲自己画的——他一辈子都在等那句重测。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 房契",
+        "lines": [
+          "这套房契收着，线条还在。",
+          "那根红线把十七号圈在「不回」的那一侧。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 房契",
+        "lines": [
+          "十七号是否仍在危险区，没有人给他一个书面结论。",
+          "红线悬在那里，像没画完。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 房契",
+        "lines": [
+          "房契按残值计。",
+          "红线那一页被抽走，连「水不会来」一起。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.address",
+    "type": "memo",
+    "title": "那户 · 地址歧义（补充材料）",
+    "lines": [
+      "清点表先写三，旁边补成四；物资领四份",
+      "转运复核「未到，末车再核」；身份材料由家属代交",
+      "四张纸的地址不一样：一个写「体育场」，一个写「第三区」",
+      "胡敏：按哪个？",
+      "依据栏只写：持续列入同户",
+      "状态：补充材料后确认"
+    ],
+    "foundFrom": "ch4.object.caseFile",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 地址歧义",
+        "lines": [
+          "几个地址没有统一。",
+          "没有按哪个——只写「持续列入同户」，状态改成补充材料后确认。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 地址歧义",
+        "lines": [
+          "那户被算作同一个人。",
+          "体育场、第三区，都归到同一户名下。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 地址歧义",
+        "lines": [
+          "按哪个，悬着。",
+          "两个地址都留，先不并。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 地址歧义",
+        "lines": [
+          "地址对不上，这户被退回。",
+          "体育场、第三区，都不算数。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.shoes",
+    "type": "photograph",
+    "title": "鞋架 · 最下层三双",
+    "lines": [
+      "最下层：父亲那双男式皮鞋在最左边，旁边两双旧布鞋",
+      "鞋尖一律朝外（朝着后门）",
+      "母亲把三双鞋并排摆齐；父亲那双又往左挪了一点",
+      "三个鞋跟才齐成一条线",
+      "「摆都摆了。」"
+    ],
+    "foundFrom": "ch4.object.shoeRack",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 鞋架",
+        "lines": [
+          "三双鞋，鞋尖朝外。",
+          "母亲从十七号出来时，脚上换成旧布鞋。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 鞋架",
+        "lines": [
+          "三双鞋留在了鞋架上。",
+          "鞋尖都朝着后门——真要走的那个方向。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 鞋架",
+        "lines": [
+          "鞋摆好了，没有拿走。",
+          "她说下次来拿。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 鞋架",
+        "lines": [
+          "清理组把新增的鞋收走。",
+          "最下层又空下来，只剩一层灰。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch4.archive.event",
+    "type": "incident-report",
+    "title": "事件定性建议 · 青潭水库重大险情",
+    "lines": [
+      "事件名称：青潭水库重大险情",
+      "受灾人口：0",
+      "迁移人口：12463",
+      "建议性质：已发生 / 未发生 / 已避免",
+      "※ 三个圆圈都空着，没有提交"
+    ],
+    "foundFrom": "ch4.object.verdictForm",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 事件定性",
+        "lines": [
+          "依据「存在可确认风险，因采取措施而未形成实际损害」核对。",
+          "可确认三个字，谁也绕不过去。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "已发生 · 事件定性",
+        "lines": [
+          "你把它定为已发生。",
+          "那场水、那场失去，被承认下来。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "已避免 · 事件定性",
+        "lines": [
+          "你把它定为已避免。",
+          "可确认风险，未成损害——先悬着，不提交。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "未发生 · 事件定性",
+        "lines": [
+          "你把它定为未发生。",
+          "算作没有发生，一切清零。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "final.archive.totals",
+    "type": "ledger",
+    "title": "终章 · 归档总清点",
+    "lines": [
+      "事件名称：青潭水库重大险情",
+      "发生时间：撤离命令下达时间",
+      "受灾人口：0",
+      "迁移人口：12463",
+      "事件状态：已发生 / 未发生 / 已避免（三个圆圈仍空着）",
+      "※ 最后一页，留给你来落"
+    ],
+    "foundFrom": "final.object.archiveDesk",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 归档总清点",
+        "lines": [
+          "数据齐全：受灾 0，迁移 12463。",
+          "唯独事件状态，三个圆圈还空着。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 归档总清点",
+        "lines": [
+          "你按「已避免」落档。",
+          "这一册，为现在保留了一个可确认的过去。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 归档总清点",
+        "lines": [
+          "三个圆圈仍然空着。",
+          "你没有提交。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 归档总清点",
+        "lines": [
+          "这一行，从移交清单上划掉。",
+          "未发生。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "final.archive.event",
+    "type": "incident-report",
+    "title": "事件性质建议 · 三圆未定",
+    "lines": [
+      "附件可以写两种意见",
+      "主状态只能选一个",
+      "已发生 → 需要补充灾害损失",
+      "未发生 → 返还模块开始计算土地面积",
+      "已避免 → 存在可确认风险，因采取措施而未形成实际损害",
+      "※ 三个圆圈依次空下来；会议休会，顾宁没有提交"
+    ],
+    "foundFrom": "final.object.filingCabinet",
+    "interpretations": [
+      {
+        "forStatus": "verified",
+        "title": "已核 · 事件性质建议",
+        "lines": [
+          "两种意见都已写出，主状态只能选一个。",
+          "「可确认」三个字，是这一册的核心。"
+        ]
+      },
+      {
+        "forStatus": "retained",
+        "title": "保留 · 事件性质建议",
+        "lines": [
+          "你定了「已避免」。",
+          "确认的风险被按下，改为没有形成实际损害。"
+        ]
+      },
+      {
+        "forStatus": "held",
+        "title": "悬置 · 事件性质建议",
+        "lines": [
+          "主状态没有填。",
+          "三个圆圈，空着。"
+        ]
+      },
+      {
+        "forStatus": "discarded",
+        "title": "移出 · 事件性质建议",
+        "lines": [
+          "你把它归根到「未发生」。",
+          "那一页，不再有可确认的风险。"
+        ]
+      }
+    ]
   }
 ]

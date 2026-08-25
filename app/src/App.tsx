@@ -13,8 +13,13 @@ import { useGameStore } from './state/store';
 export default function App() {
   const screen = useGameStore((s) => s.screen);
   const panel = useGameStore((s) => s.panel);
-  // 章节结算：内容 flag ch1.chapter.end 驱动（随 world 持久，读档可重现）
-  const settled = useGameStore((s) => s.screen === 'game' && !!s.world.flags['ch1.chapter.end']);
+  // 章节结算：当前章 settlement.triggerFlag 驱动（随 world 持久，读档可重现）
+  const chapterId = useGameStore((s) => s.world.currentChapter);
+  const chapter = useGameStore((s) => s.data.chapters.get(chapterId));
+  const settled = useGameStore(
+    (s) =>
+      s.screen === 'game' && !!chapter?.settlement && !!s.world.flags[chapter.settlement.triggerFlag],
+  );
 
   // 结算期间始终锁定移动输入；面板开合（closePanel 会解锁）后重新上锁
   useEffect(() => {

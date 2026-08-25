@@ -86,6 +86,8 @@ export interface GameStore {
   clearToast: () => void;
   requestNav: (mapId: string, x: number, y: number) => void;
   newGame: () => void;
+  /** 框架扩展：从当前章推进到下一章（保留世界状态，重置会话相位） */
+  advanceToChapter: (nextId: string) => void;
 
   // ---- dialogue ----
   openDialogue: (nodeId: string) => void;
@@ -133,6 +135,41 @@ function freshWorld(chapterId: string): WorldState {
     flags: {},
     pending: {},
   };
+}
+
+/**
+ * 头章推导（框架扩展·多章节）：未被任何章节 `next` 引用的章节即章节链的入口。
+ * 数据驱动，避免硬编码章节 id；多入口（内容并联）时按 chapterId 取首个做起点。
+ */
+function headChapterId(data: DataCatalog): string {
+  const referenced = new Set<string>();
+  for (const c of data.chapters.values()) if (c.next) referenced.add(c.next);
+  const head = [...data.chapters.values()]
+    .filter((c) => !referenced.has(c.chapterId))
+    .sort((a, b) => a.chapterId.localeCompare(b.chapterId))[0];
+  return head?.chapterId ?? 'ch1';
+}
+
+/** 章节起点：startMap id + 该地图出生点（缺省兜底常量） */
+function chapterStart(
+  data: DataCatalog,
+  chapterId: string,
+): { mapId: string; spawn: { x: number; y: number } } {
+  const mapId = data.chapters.get(chapterId)?.startMap ?? DEFAULT_START_MAP;
+  const spawn = data.maps.get(mapId)?.spawn ?? DEFAULT_START_POS;
+  return { mapId, spawn: { x: spawn.x, y: spawn.y } };
+}
+
+/**
+ * 解析全新周目的起点（框架扩展·多章节）：头章 + 其 startMap + 出生点。
+ * 供 store.newGame 与 BootstrapScene 兜底共用，避免头章推导逻辑分叉。
+ */
+export function resolvePlaythroughStart(
+  data: DataCatalog,
+): { chapterId: string; mapId: string; spawn: { x: number; y: number } } {
+  const chapterId = headChapterId(data);
+  const { mapId, spawn } = chapterStart(data, chapterId);
+  return { chapterId, mapId, spawn };
 }
 
 let toastSeq = 0;
@@ -301,13 +338,13 @@ export function createGameStore(storage: KVStorage = browserStorage) {
         }));
       },
       newGame() {
-        // 起始地图优先取章节数据的 startMap（内容驱动），兜底走常量
-        const startMap = get().data.chapters.get('ch1')?.startMap ?? DEFAULT_START_MAP;
+        // 头章数据驱动（不被任何 next 引用者），起始地图取该章 startMap（内容驱动）
+        const { chapterId: first, mapId, spawn } = resolvePlaythroughStart(get().data);
         set({
           screen: 'game',
-          world: freshWorld('ch1'),
-          currentMap: startMap,
-          playerTile: { ...DEFAULT_START_POS },
+          world: freshWorld(first),
+          currentMap: mapId,
+          playerTile: { ...spawn },
           interacted: [],
           inventory: [],
           onceNodes: [],
@@ -316,7 +353,31 @@ export function createGameStore(storage: KVStorage = browserStorage) {
           conv: createEmptyConv(),
           toast: null,
         });
-        get().requestNav(startMap, DEFAULT_START_POS.x, DEFAULT_START_POS.y);
+        get().requestNav(mapId, spawn.x, spawn.y);
+      },
+      advanceToChapter(nextId) {
+        const s = get();
+        const data = s.data;
+        if (!data.chapters.get(nextId)) {
+          console.error(`[store] advanceToChapter 指向不存在的章节 "${nextId}"`);
+          return;
+        }
+        const { mapId, spawn } = chapterStart(data, nextId);
+        // 状态继承：仅推进 currentChapter，保留 world（档案/flag/选择/结局随周目累加）
+        set({
+          world: { ...s.world, currentChapter: nextId },
+          currentMap: mapId,
+          playerTile: { ...spawn },
+          interacted: [],
+          inventory: [],
+          onceNodes: [],
+          inputLocked: false,
+          panel: null,
+          conv: createEmptyConv(),
+          toast: null,
+        });
+        bus.emit('chapter:advance', { to: nextId });
+        get().requestNav(mapId, spawn.x, spawn.y);
       },
 
       // ---------------- dialogue ----------------

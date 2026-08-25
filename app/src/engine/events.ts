@@ -22,6 +22,8 @@ export type DomainEventMap = {
   'dialog:end': { nextNodeId: string | null }
   /** 场景切换 */
   'scene:change': { from: string | null; to: string }
+  /** 章节推进（状态继承：world 保留，进入下一章） */
+  'chapter:advance': { to: string }
   /** 玩家进入新格子（低频） */
   'player:enteredTile': { x: number; y: number }
   /** UI 提示（toast） */

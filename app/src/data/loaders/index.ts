@@ -111,6 +111,22 @@ export async function loadCatalog(): Promise<DataCatalog> {
     }
   }
 
+  // 出口同章守门：跨章地图混用会让「对话图按章独立」断链（当前章引用不到别章 node），直接拦截
+  for (const [id, map] of maps) {
+    for (const exit of map.exits) {
+      const target = maps.get(exit.to)
+      if (!target) {
+        throw new Error(`数据校验失败 [maps.${id}]: 出口 "${exit.to}" 不存在于 maps.json`)
+      }
+      if (target.chapter !== map.chapter) {
+        throw new Error(
+          `数据校验失败 [maps.${id}]: 出口 "${exit.to}" 跨章（${map.chapter} → ${target.chapter}），` +
+            `对话图按章独立，禁止跨章出口`,
+        )
+      }
+    }
+  }
+
   for (const chapter of chapters.values()) {
     if (chapter.startMap && !maps.has(chapter.startMap)) {
       throw new Error(
@@ -120,6 +136,15 @@ export async function loadCatalog(): Promise<DataCatalog> {
     if (chapter.intro && !chapter.nodes.some((n) => n.id === chapter.intro!.node)) {
       throw new Error(
         `数据校验失败 [story.${chapter.chapterId}]: intro.node "${chapter.intro.node}" 不存在于本章节 nodes`,
+      )
+    }
+  }
+
+  // 章节链 next 目标必须在章节库中存在（前向引用，故置于建表循环之后校验）
+  for (const chapter of chapters.values()) {
+    if (chapter.next && !chapters.has(chapter.next)) {
+      throw new Error(
+        `数据校验失败 [story.${chapter.chapterId}]: next "${chapter.next}" 不存在于章节库`,
       )
     }
   }

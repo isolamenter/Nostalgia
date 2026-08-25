@@ -44,7 +44,9 @@
     "y": 14,
     "interactRange": 1.5,
     "inspect": "ch1.s.note.1",
-    "collect": { "id": "ch1.item.prescription" },
+    "collect": {
+      "id": "ch1.item.prescription"
+    },
     "once": true
   },
   {
@@ -68,10 +70,18 @@
     "dialogue": "ch1.event.dinner.1",
     "requirements": {
       "all": [
-        { "hasArchive": "ch1.archive.signal" },
-        { "hasArchive": "ch1.archive.ledger" },
-        { "hasArchive": "ch1.archive.distribution" },
-        { "hasArchive": "ch1.archive.transfer" }
+        {
+          "hasArchive": "ch1.archive.signal"
+        },
+        {
+          "hasArchive": "ch1.archive.ledger"
+        },
+        {
+          "hasArchive": "ch1.archive.distribution"
+        },
+        {
+          "hasArchive": "ch1.archive.transfer"
+        }
       ]
     },
     "unmetInspect": "ch1.s.ma.before"
@@ -96,7 +106,9 @@
     "y": 8,
     "interactRange": 1.5,
     "inspect": "ch1.s.dishrack.1",
-    "collect": { "id": "ch1.item.crackedBowl" },
+    "collect": {
+      "id": "ch1.item.crackedBowl"
+    },
     "once": true
   },
   {
@@ -154,7 +166,9 @@
     "y": 10,
     "interactRange": 1.5,
     "inspect": "ch1.s.copier.1",
-    "collect": { "id": "ch1.item.photocopy" },
+    "collect": {
+      "id": "ch1.item.photocopy"
+    },
     "once": true
   },
   {
@@ -176,7 +190,9 @@
     "y": 3,
     "interactRange": 2,
     "dialogue": "ch1.s.meat.hello",
-    "requirements": { "hasArchive": "ch1.archive.signal" },
+    "requirements": {
+      "hasArchive": "ch1.archive.signal"
+    },
     "unmetInspect": "ch1.s.meat.before"
   },
   {
@@ -188,7 +204,9 @@
     "y": 3,
     "interactRange": 1.5,
     "inspect": "ch1.s.pharmacy.1",
-    "collect": { "id": "ch1.item.mothersMedicine" },
+    "collect": {
+      "id": "ch1.item.mothersMedicine"
+    },
     "once": true
   },
   {
@@ -200,5 +218,547 @@
     "y": 3,
     "interactRange": 1.5,
     "inspect": "ch1.s.veg.1"
+  },
+  {
+    "id": "ch2.object.blackshoes",
+    "name": "黑皮鞋",
+    "kind": "object",
+    "location": "ch2.maps.shop",
+    "x": 8,
+    "y": 7,
+    "interactRange": 1.5,
+    "inspect": "ch2.s.shoes.1",
+    "provideArchive": "ch2.archive.blackshoes",
+    "once": true
+  },
+  {
+    "id": "ch2.object.ledger",
+    "name": "修鞋账本",
+    "kind": "object",
+    "location": "ch2.maps.shop",
+    "x": 3,
+    "y": 5,
+    "interactRange": 1.5,
+    "inspect": "ch2.s.ledger.1",
+    "provideArchive": "ch2.archive.ledger",
+    "once": true
+  },
+  {
+    "id": "ch2.object.toolbag",
+    "name": "帆布工具袋",
+    "kind": "object",
+    "location": "ch2.maps.shop",
+    "x": 11,
+    "y": 7,
+    "interactRange": 1.5,
+    "inspect": "ch2.s.toolbag.1",
+    "provideArchive": "ch2.archive.toolbag",
+    "once": true
+  },
+  {
+    "id": "ch2.object.registration",
+    "name": "旧执照",
+    "kind": "object",
+    "location": "ch2.maps.shop",
+    "x": 12,
+    "y": 8,
+    "interactRange": 1.5,
+    "inspect": "ch2.s.registration.1",
+    "provideArchive": "ch2.archive.registration",
+    "once": true
+  },
+  {
+    "id": "ch2.object.xuqiu",
+    "name": "许观",
+    "kind": "npc",
+    "location": "ch2.maps.shop",
+    "x": 6,
+    "y": 4,
+    "interactRange": 2,
+    "dialogue": "ch2.event.assess.1",
+    "requirements": {
+      "all": [
+        {
+          "hasArchive": "ch2.archive.blackshoes"
+        },
+        {
+          "hasArchive": "ch2.archive.toolbag"
+        },
+        {
+          "hasArchive": "ch2.archive.ledger"
+        },
+        {
+          "hasArchive": "ch2.archive.registration"
+        },
+        {
+          "hasArchive": "ch2.archive.relik"
+        }
+      ]
+    },
+    "unmetInspect": "ch2.s.xuqiu.before"
+  },
+  {
+    "id": "ch2.object.qiuxiuying",
+    "name": "秋秀英",
+    "kind": "npc",
+    "location": "ch2.maps.street",
+    "x": 4,
+    "y": 7,
+    "interactRange": 2,
+    "dialogue": "ch2.s.qiu.1"
+  },
+  {
+    "id": "ch2.object.shen",
+    "name": "沈师傅",
+    "kind": "npc",
+    "location": "ch2.maps.street",
+    "x": 11,
+    "y": 7,
+    "interactRange": 2,
+    "dialogue": "ch2.s.shen.1"
+  },
+  {
+    "id": "ch2.object.tinbox",
+    "name": "铁皮箱",
+    "kind": "object",
+    "location": "ch2.maps.warehouse",
+    "x": 7,
+    "y": 8,
+    "interactRange": 1.5,
+    "inspect": "ch2.s.tinbox.1",
+    "provideArchive": "ch2.archive.relik",
+    "once": true
+  },
+  {
+    "id": "ch2.object.debris",
+    "name": "清运杂物",
+    "kind": "object",
+    "location": "ch2.maps.warehouse",
+    "x": 4,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "ch2.s.debris.1"
+  },
+  {
+    "id": "ch3.object.dispatchRecord",
+    "name": "调度室记录",
+    "kind": "object",
+    "location": "ch3.maps.depot",
+    "x": 5,
+    "y": 4,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.dispatch.1",
+    "provideArchive": "ch3.archive.dispatchNote",
+    "once": true
+  },
+  {
+    "id": "ch3.object.fatherCard",
+    "name": "父亲的乘车证",
+    "kind": "object",
+    "location": "ch3.maps.depot",
+    "x": 10,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.fathercard.1",
+    "provideArchive": "ch3.archive.fatherCard",
+    "once": true
+  },
+  {
+    "id": "ch3.object.routeNotice",
+    "name": "线路调整通知",
+    "kind": "object",
+    "location": "ch3.maps.depot",
+    "x": 2,
+    "y": 7,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.route.1"
+  },
+  {
+    "id": "ch3.object.dispatcher",
+    "name": "调度员·安",
+    "kind": "npc",
+    "location": "ch3.maps.depot",
+    "x": 2,
+    "y": 6,
+    "interactRange": 2,
+    "dialogue": "ch3.s.dispatch.hello",
+    "requirements": {
+      "hasArchive": "ch3.archive.tempStop"
+    },
+    "unmetInspect": "ch3.s.dispatch.before"
+  },
+  {
+    "id": "ch3.object.zhao",
+    "name": "赵洪生",
+    "kind": "npc",
+    "location": "ch3.maps.depot",
+    "x": 9,
+    "y": 11,
+    "interactRange": 2,
+    "dialogue": "ch3.s.zhao.hello",
+    "requirements": {
+      "all": [
+        {
+          "hasArchive": "ch3.archive.dispatchNote"
+        },
+        {
+          "hasArchive": "ch3.archive.tempStop"
+        },
+        {
+          "hasArchive": "ch3.archive.fatherCard"
+        }
+      ]
+    },
+    "unmetInspect": "ch3.s.zhao.before"
+  },
+  {
+    "id": "ch3.object.announcer",
+    "name": "报站器",
+    "kind": "object",
+    "location": "ch3.maps.bend",
+    "x": 6,
+    "y": 5,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.announcer.1",
+    "provideArchive": "ch3.archive.announcer",
+    "once": true
+  },
+  {
+    "id": "ch3.object.stopBell",
+    "name": "停车铃",
+    "kind": "object",
+    "location": "ch3.maps.bend",
+    "x": 9,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.stopBell.1",
+    "provideArchive": "ch3.archive.stopBell",
+    "once": true
+  },
+  {
+    "id": "ch3.object.taopo",
+    "name": "陶婆",
+    "kind": "npc",
+    "location": "ch3.maps.bend",
+    "x": 7,
+    "y": 10,
+    "interactRange": 2,
+    "dialogue": "ch3.s.taopo.1"
+  },
+  {
+    "id": "ch3.object.woolHat",
+    "name": "戴毛线帽老人",
+    "kind": "npc",
+    "location": "ch3.maps.bend",
+    "x": 4,
+    "y": 11,
+    "interactRange": 2,
+    "dialogue": "ch3.s.woolhat.1"
+  },
+  {
+    "id": "ch3.object.stopSign",
+    "name": "岔河口站牌",
+    "kind": "object",
+    "location": "ch3.maps.fork",
+    "x": 6,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.stopsign.1",
+    "provideArchive": "ch3.archive.tempStop",
+    "once": true
+  },
+  {
+    "id": "ch3.object.offerBag",
+    "name": "红塑料袋",
+    "kind": "object",
+    "location": "ch3.maps.fork",
+    "x": 8,
+    "y": 8,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.offerbag.1",
+    "provideArchive": "ch3.archive.offerBag",
+    "once": true
+  },
+  {
+    "id": "ch3.object.water",
+    "name": "水面",
+    "kind": "object",
+    "location": "ch3.maps.fork",
+    "x": 11,
+    "y": 12,
+    "interactRange": 1.5,
+    "inspect": "ch3.s.water.1"
+  },
+  {
+    "id": "ch4.object.platform",
+    "name": "处置平台电脑",
+    "kind": "object",
+    "location": "ch4.maps.service",
+    "x": 8,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.platform.1",
+    "provideArchive": "ch4.archive.platform"
+  },
+  {
+    "id": "ch4.object.caseFile",
+    "name": "登记卷宗 · 那户",
+    "kind": "object",
+    "location": "ch4.maps.service",
+    "x": 4,
+    "y": 10,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.address.1",
+    "provideArchive": "ch4.archive.address",
+    "once": true
+  },
+  {
+    "id": "ch4.object.verdictForm",
+    "name": "事件性质建议表",
+    "kind": "object",
+    "location": "ch4.maps.service",
+    "x": 8,
+    "y": 10,
+    "interactRange": 1.5,
+    "inspect": "ch4.event.adjudicate.1",
+    "provideArchive": "ch4.archive.event",
+    "requirements": {
+      "all": [
+        {
+          "hasArchive": "ch4.archive.platform"
+        },
+        {
+          "hasArchive": "ch4.archive.risk"
+        },
+        {
+          "hasArchive": "ch4.archive.deed"
+        },
+        {
+          "hasArchive": "ch4.archive.address"
+        },
+        {
+          "hasArchive": "ch4.archive.shoes"
+        }
+      ]
+    },
+    "unmetInspect": "ch4.s.verdict.before",
+    "once": true
+  },
+  {
+    "id": "ch4.object.jiang",
+    "name": "蒋科长",
+    "kind": "npc",
+    "location": "ch4.maps.service",
+    "x": 7,
+    "y": 4,
+    "interactRange": 2,
+    "dialogue": "ch4.s.jiang.hello"
+  },
+  {
+    "id": "ch4.object.zhangxiuying",
+    "name": "张秀英",
+    "kind": "npc",
+    "location": "ch4.maps.service",
+    "x": 5,
+    "y": 6,
+    "interactRange": 2,
+    "dialogue": "ch4.s.zhang.hello"
+  },
+  {
+    "id": "ch4.object.humin",
+    "name": "胡敏",
+    "kind": "npc",
+    "location": "ch4.maps.service",
+    "x": 8,
+    "y": 8,
+    "interactRange": 2,
+    "dialogue": "ch4.s.humin.hello"
+  },
+  {
+    "id": "ch4.object.taoxianfa",
+    "name": "陶先发 · 返乡协会桌",
+    "kind": "npc",
+    "location": "ch4.maps.service",
+    "x": 13,
+    "y": 14,
+    "interactRange": 2,
+    "dialogue": "ch4.s.tao.hello"
+  },
+  {
+    "id": "ch4.object.grayMan",
+    "name": "灰夹克男",
+    "kind": "npc",
+    "location": "ch4.maps.service",
+    "x": 5,
+    "y": 11,
+    "interactRange": 2,
+    "dialogue": "ch4.s.gray.1"
+  },
+  {
+    "id": "ch4.object.bronzeBox",
+    "name": "铁盒",
+    "kind": "object",
+    "location": "ch4.maps.home",
+    "x": 10,
+    "y": 5,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.box.1",
+    "provideArchive": "ch4.archive.key",
+    "once": true
+  },
+  {
+    "id": "ch4.object.fatherMap",
+    "name": "危险区边界图",
+    "kind": "object",
+    "location": "ch4.maps.home",
+    "x": 10,
+    "y": 4,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.map.1",
+    "provideArchive": "ch4.archive.deed",
+    "once": true
+  },
+  {
+    "id": "ch4.object.mother",
+    "name": "母亲",
+    "kind": "npc",
+    "location": "ch4.maps.home",
+    "x": 7,
+    "y": 12,
+    "interactRange": 2,
+    "dialogue": "ch4.s.mother.1",
+    "requirements": {
+      "all": [
+        {
+          "hasArchive": "ch4.archive.key"
+        },
+        {
+          "hasArchive": "ch4.archive.deed"
+        }
+      ]
+    },
+    "unmetInspect": "ch4.s.mother.before"
+  },
+  {
+    "id": "ch4.object.shoeRack",
+    "name": "鞋架",
+    "kind": "object",
+    "location": "ch4.maps.house",
+    "x": 9,
+    "y": 5,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.shoes.1",
+    "provideArchive": "ch4.archive.shoes",
+    "once": true
+  },
+  {
+    "id": "ch4.object.motherOpen",
+    "name": "母亲 · 开放日",
+    "kind": "npc",
+    "location": "ch4.maps.house",
+    "x": 9,
+    "y": 8,
+    "interactRange": 2,
+    "dialogue": "ch4.s.open.1"
+  },
+  {
+    "id": "ch4.object.doorPlate",
+    "name": "前门门牌",
+    "kind": "object",
+    "location": "ch4.maps.house",
+    "x": 7,
+    "y": 4,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.door.1"
+  },
+  {
+    "id": "ch4.object.riskBox",
+    "name": "纸箱 · 青潭险情",
+    "kind": "object",
+    "location": "ch4.maps.warehouse",
+    "x": 6,
+    "y": 9,
+    "interactRange": 1.5,
+    "inspect": "ch4.s.risk.1",
+    "provideArchive": "ch4.archive.risk",
+    "once": true
+  },
+  {
+    "id": "ch4.object.luo",
+    "name": "罗正明",
+    "kind": "npc",
+    "location": "ch4.maps.warehouse",
+    "x": 7,
+    "y": 4,
+    "interactRange": 2,
+    "dialogue": "ch4.s.luo.1"
+  },
+  {
+    "id": "final.object.archiveDesk",
+    "name": "归档桌",
+    "kind": "object",
+    "location": "final.maps.archives",
+    "x": 7,
+    "y": 9,
+    "interactRange": 1.5,
+    "inspect": "final.s.desk.1",
+    "provideArchive": "final.archive.totals",
+    "once": true
+  },
+  {
+    "id": "final.object.filingCabinet",
+    "name": "档案柜 · 甲柜",
+    "kind": "object",
+    "location": "final.maps.archives",
+    "x": 3,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "final.s.cabinet.1",
+    "provideArchive": "final.archive.event",
+    "once": true
+  },
+  {
+    "id": "final.object.binders",
+    "name": "归档总册",
+    "kind": "object",
+    "location": "final.maps.archives",
+    "x": 12,
+    "y": 6,
+    "interactRange": 1.5,
+    "inspect": "final.s.binders.1",
+    "requirements": {
+      "all": [
+        {
+          "hasArchive": "final.archive.totals"
+        },
+        {
+          "hasArchive": "final.archive.event"
+        }
+      ]
+    },
+    "unmetInspect": "final.s.binders.pending",
+    "once": true
+  },
+  {
+    "id": "final.object.key",
+    "name": "那把钥匙",
+    "kind": "object",
+    "location": "final.maps.archives",
+    "x": 5,
+    "y": 12,
+    "interactRange": 1.5,
+    "inspect": "final.s.key.1",
+    "once": true
+  },
+  {
+    "id": "final.object.pendingBasket",
+    "name": "待核篮",
+    "kind": "object",
+    "location": "final.maps.archives",
+    "x": 9,
+    "y": 11,
+    "interactRange": 1.5,
+    "inspect": "final.s.basket.1",
+    "once": true
   }
 ]
